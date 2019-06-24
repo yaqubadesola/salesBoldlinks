@@ -1,0 +1,1506 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: Jun 14, 2019 at 07:52 PM
+-- Server version: 5.6.43
+-- PHP Version: 5.6.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `boldlinks_inventory`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+CREATE TABLE `comment` (
+  `id` int(200) NOT NULL,
+  `date` datetime NOT NULL,
+  `comments` varchar(10000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customers`
+--
+
+CREATE TABLE `customers` (
+  `date` date NOT NULL,
+  `id` int(20) NOT NULL,
+  `name` varchar(1000) NOT NULL,
+  `phone` varchar(200) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `address` varchar(10000) NOT NULL,
+  `user` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`date`, `id`, `name`, `phone`, `email`, `address`, `user`) VALUES
+('2019-01-08', 1, 'Mr Alade', '08056109889', '', '', ''),
+('2019-01-08', 2, 'Mrs Godfirst (I.D card)', '07066029011', '', '', ''),
+('2019-01-08', 3, 'Trugate consult', '08032320038', '', '', ''),
+('2019-01-08', 4, 'Almat (Ayo)', '08186773209', '', '', ''),
+('2019-01-08', 5, 'Mr Daniel (ch)', '09081752040', '', '', ''),
+('2019-01-08', 6, 'Sigma Press ', '08038181093', '', '', ''),
+('2019-01-08', 7, 'Mr Eugene', '07039831377', '', '', ''),
+('2019-01-08', 8, 'Mrs Zainab (I.D card)', '08132373879', '', '', ''),
+('2019-01-08', 9, 'Miss Joy', '08135871519', '', '', ''),
+('2019-01-08', 10, 'Mummy Fola', '08027358520', '', '', ''),
+('2019-01-08', 11, 'Hon Shola', '07080436084', '', '', ''),
+('2019-01-08', 12, 'Mr Odeleye', '07030115897', '', '', ''),
+('2019-01-08', 13, 'Expression (mrs)', '08023395710', '', '', ''),
+('2019-01-08', 14, 'Expression (mrs)', '08023395710', '', '', ''),
+('2019-01-08', 15, 'Mr Adewale', '07066308674', '', '', ''),
+('2019-01-08', 16, 'Debby', '08133136474', '', '', ''),
+('2019-01-08', 17, 'Mr Issac', '07062828131', '', '', ''),
+('2019-01-08', 18, 'Mr Kenneth', '09033408805', '', '', ''),
+('2019-01-08', 19, 'Mr Gbenga', '07069652870', '', '', ''),
+('2019-01-08', 20, 'D Sower', '08173497475', '', '', ''),
+('2019-01-08', 21, 'Mr Shola', '07039261439', '', '', ''),
+('2019-01-08', 22, 'Mr Hassan', '08100101588', '', '', ''),
+('2019-01-08', 23, 'Abdul Hakeem', '08169832396', '', '', ''),
+('2019-01-08', 24, 'Mr Alaba', '08071900175', '', '', ''),
+('2019-01-08', 25, 'Mr Fela', '08052411578', '', '', ''),
+('2019-01-08', 26, 'Mr Gbenga New', '09063186696', '', '', ''),
+('2019-01-08', 27, 'Mr Ohis', '08137485593', '', '', ''),
+('2019-01-08', 28, 'Pastor Thony', '08083441919', '', '', ''),
+('2019-01-08', 29, 'Pastor', '08135389995', '', '', ''),
+('2019-01-08', 30, 'Pastor', '08034251884', '', '', ''),
+('2019-01-08', 31, 'Madam Nneka', '08034065896', '', '', ''),
+('2019-01-08', 32, 'Mr Dayo Femic', '08023068892', '', '', ''),
+('2019-01-08', 33, 'Bro Ibrahim Motif Customer', '08062981844', '', '', ''),
+('2019-01-08', 34, 'Lolade Customer Ikeja', '08103055909', '', '', ''),
+('2019-01-08', 35, 'Effizie Customer', '09031824318', '', '', ''),
+('2019-01-08', 36, 'Nicholas Ogude Customer', '08033352883', '', '', ''),
+('2019-01-08', 39, 'Paul Customer', '08155496158', '', '', ''),
+('2019-01-08', 40, 'New Customer Ijaiye', '08089628128', '', '', ''),
+('2019-01-08', 41, 'Mike Customer', '08051668088', '', '', ''),
+('2019-01-08', 42, 'Customer Web IB 2', '07018050442', '', '', ''),
+('2019-01-08', 43, 'Customer Pearl', '08023309095', '', '', ''),
+('2019-01-08', 44, 'Ojo Tem Customer', '07039457536', '', '', ''),
+('2019-01-08', 45, 'Olufidipe Victor Customer', '08135918010', '', '', ''),
+('2019-01-08', 46, 'Madam Asalam Customer', '09069599178', '', '', ''),
+('2019-01-08', 47, 'Dr Kaiworld Sola Customer', '', '', '', ''),
+('2019-01-08', 48, 'Mr Yaqub ', '08075664662', '', '', ''),
+('2019-01-08', 49, 'papa Alade', '08029707489', '', '', ''),
+('2019-01-08', 50, 'Extremegrafix Imagery Customer', '08062643627', '', '', ''),
+('2019-01-08', 51, 'Yomi Boldlinks', '07082725430', '', '', ''),
+('2019-01-08', 52, 'Joy Imolega Boldlinks', '08050451377', '', '', ''),
+('2019-01-08', 53, 'Mr Kola Boldlinks', '08069149691', '', '', ''),
+('2019-01-08', 55, 'Yussuf Boldlinks', '07035377825', '', '', ''),
+('2019-01-08', 57, 'Mr Saheed Boldlinks', '09058302137', '', '', ''),
+('2019-01-08', 58, 'David Boldlinks', '08151208155', '', '', ''),
+('2019-01-08', 59, 'Boldlinks Abubakar Abuja', '08149545959', '', '', ''),
+('2019-01-08', 60, 'Yunusa Ismail Boldlinks', '08164911261', '', '', ''),
+('2019-01-08', 61, 'Tobi Boldlinks', '08145282363', '', '', ''),
+('2019-01-08', 62, 'Afterlife Boldlinks', '07018172433', '', '', ''),
+('2019-01-08', 63, 'Afterlife Boldlinks 2', '08054081928', '', '', ''),
+('2019-01-08', 64, 'Muhammad Boldlinks', '08162837886', '', '', ''),
+('2019-01-18', 65, 'Mr Ahmed', '08138506684', '', '', ''),
+('2019-01-18', 66, 'Mr Lanre', '08037606384', '', '', ''),
+('2019-01-18', 67, 'Mr Ojo', '08168542626', '', '', ''),
+('2019-01-18', 68, 'Mr Francis', '07063302644', '', '', ''),
+('2019-01-18', 69, 'Mr Oluwagbenga', '09063186696', '', '', ''),
+('2019-01-22', 70, 'comerade Ajayi', '08037222290', '', '', ''),
+('2019-01-22', 71, 'Mr Moses', '08141520511', '', '', ''),
+('2019-01-22', 72, 'Gbensap', '08036856175', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customers_comment_table`
+--
+
+CREATE TABLE `customers_comment_table` (
+  `id` int(20) NOT NULL,
+  `date` datetime NOT NULL,
+  `user` varchar(100) NOT NULL,
+  `comment` varchar(10000) NOT NULL,
+  `salesid` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `expenses`
+--
+
+CREATE TABLE `expenses` (
+  `id` int(100) NOT NULL,
+  `date` date NOT NULL,
+  `item` varchar(200) NOT NULL,
+  `quantity` varchar(200) NOT NULL,
+  `cost` varchar(200) NOT NULL,
+  `user` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `expenses`
+--
+
+INSERT INTO `expenses` (`id`, `date`, `item`, `quantity`, `cost`, `user`) VALUES
+(1, '2019-01-08', 'Petrol', '', '1000', 'opeyemi'),
+(3, '2019-01-08', 'nylon', '30', '300', 'opeyemi'),
+(4, '2019-01-08', 'pure water', '1 bag', '100', 'opeyemi'),
+(5, '2019-01-08', 'sack', '1', '100', 'opeyemi'),
+(6, '2019-01-10', 'petrol', '', '1000', 'opeyemi'),
+(7, '2019-01-10', 'Nepa Bill', '', '6200', 'opeyemi'),
+(8, '2019-01-10', 'system', '1', '20,000', 'opeyemi'),
+(9, '2019-01-10', 'cash box', '1', '5000', 'opeyemi'),
+(10, '2019-01-12', 'plier', '1', '350', 'Boldlinks'),
+(11, '2019-01-12', 'spanner', '1', '150', 'Boldlinks'),
+(12, '2019-01-12', 'windows 8.1 OS', '1', '300', 'Boldlinks'),
+(13, '2019-01-12', 'power cable', '1', '500', 'Boldlinks'),
+(14, '2019-01-16', 'Fuel', '', '1700', 'opeyemi'),
+(15, '2019-01-16', 'Aitime', '', '200', 'opeyemi'),
+(16, '2019-01-19', 'Fuel', '', '1000', 'opeyemi'),
+(18, '2019-01-19', 'Mr Yaqub', '', '200', 'opeyemi'),
+(19, '2019-01-19', 'Roll Up', '', '1100', 'Boldlinks'),
+(20, '2019-01-19', 'Fuel', '', '1000', 'Boldlinks'),
+(21, '2019-01-22', 'Menthylated Spirit', '1', '400', 'opeyemi'),
+(22, '2019-01-22', 'Water', '', '100', 'opeyemi'),
+(23, '2019-01-22', 'Sack', '1', '100', 'opeyemi'),
+(24, '2019-01-22', 'Lamination', '2', '100', 'opeyemi'),
+(25, '2019-01-22', 'Petrol', '', '1000', 'opeyemi'),
+(26, '2019-01-22', 'Charges for Bank Transfer', '', '200', 'opeyemi'),
+(27, '2019-01-22', 'Mr Yaqub', '', '500', 'opeyemi'),
+(28, '2019-01-25', 'Mr Yaqub', '', '500', 'opeyemi'),
+(29, '2019-01-25', 'Petrol', '', '1000', 'opeyemi'),
+(30, '2019-01-25', 'I.D Card', '', '7500', 'opeyemi'),
+(31, '2019-01-28', 'Banner', '', '500', 'opeyemi'),
+(32, '2019-01-28', 'Fuel', '', '1200', 'opeyemi'),
+(33, '2019-01-31', 'Repair Of Gen', '', '3000', 'opeyemi'),
+(34, '2019-01-31', 'Fuel', '10KG', '1700', 'Boldlinks'),
+(35, '2019-01-31', 'Salary', '', '46000', 'opeyemi'),
+(36, '2019-02-06', 'Airtime', '', '100', 'opeyemi'),
+(37, '2019-02-11', 'sack', '', '100', 'opeyemi'),
+(38, '2019-02-11', 'Airtime', '', '1000', 'opeyemi'),
+(39, '2019-02-14', 'petrol', '', '1700', 'opeyemi'),
+(40, '2019-02-25', 'Airtime', '', '200', 'opeyemi'),
+(41, '2019-02-25', 'Petrol', '', '900', 'opeyemi'),
+(42, '2019-02-25', 'Petrol', '', '1000', 'opeyemi'),
+(43, '2019-02-25', 'Toner', '', '3500', 'opeyemi'),
+(44, '2019-02-25', 'Petrol', '', '1700', 'opeyemi'),
+(45, '2019-02-25', 'Toner', '', '3500', 'opeyemi'),
+(46, '2019-02-27', 'Petrol', '', '1700', 'opeyemi'),
+(47, '2019-02-27', 'Toner', '', '3500', 'opeyemi'),
+(48, '2019-03-11', 'marker', '', '100', 'opeyemi'),
+(49, '2019-03-11', 'toner', '2', '7000', 'opeyemi'),
+(50, '2019-03-11', 'sack', '1', '100', 'opeyemi'),
+(51, '2019-03-11', 'toner', '1', '3500', 'opeyemi'),
+(52, '2019-03-11', 'petrol', '', '1000', 'opeyemi'),
+(53, '2019-03-11', 'petrol', '', '1000', 'opeyemi'),
+(54, '2019-03-20', 'Toner', '2', '7000', 'opeyemi'),
+(55, '2019-03-20', 'petrol', '', '1000', 'opeyemi'),
+(56, '2019-03-20', 'petrol', '', '1000', 'opeyemi'),
+(57, '2019-03-20', 'petrol', '', '1700', 'opeyemi'),
+(58, '2019-04-10', 'Toner', '1', '3500', 'opeyemi'),
+(59, '2019-04-10', 'Toner', '2', '7000', 'opeyemi'),
+(60, '2019-04-10', 'Toner', '1', '3500', 'opeyemi'),
+(61, '2019-04-10', 'Toner', '1', '3500', 'opeyemi'),
+(62, '2019-04-10', 'petrol', '', '1700', 'opeyemi'),
+(63, '2019-04-10', 'sack', '2', '200', 'opeyemi'),
+(64, '2019-04-10', 'petrol', '', '1700', 'opeyemi'),
+(65, '2019-04-10', 'Airtime', '', '200', 'opeyemi'),
+(66, '2019-04-10', 'water', '', '100', 'opeyemi'),
+(67, '2019-04-10', 'Toner', '', '3500', 'opeyemi'),
+(68, '2019-04-10', 'petrol', '', '1700', 'opeyemi'),
+(69, '2019-04-13', 'I.d card', '', '250', 'opeyemi'),
+(70, '2019-04-13', 'petrol', '', '1700', 'opeyemi'),
+(71, '2019-04-18', 'petrol', '', '1700', 'opeyemi'),
+(72, '2019-04-18', 'water', '', '100', 'opeyemi'),
+(73, '2019-04-18', 'Tape', '', '50', 'opeyemi'),
+(74, '2019-04-18', 'water & paracetamol', '', '150', 'opeyemi'),
+(75, '2019-04-18', 'Toner', '', '3500', 'opeyemi'),
+(76, '2019-04-30', 'petrol', '', '1800', 'opeyemi'),
+(77, '2019-04-30', 'Cutting', '', '200', 'opeyemi'),
+(78, '2019-04-30', 'card', '', '250', 'opeyemi'),
+(79, '2019-04-30', 'Methylated spirit', '', '400', 'opeyemi'),
+(80, '2019-04-30', 'petrol', '', '1000', 'opeyemi'),
+(81, '2019-04-30', 'petrol', '', '1800', 'opeyemi'),
+(82, '2019-04-30', 'card', '', '600', 'opeyemi'),
+(83, '2019-04-30', 'Sticker', '', '420', 'opeyemi'),
+(84, '2019-04-30', 'printing', '', '2000', 'opeyemi'),
+(85, '2019-04-30', 'printing', '', '500', 'opeyemi'),
+(86, '2019-04-30', 'water', '', '100', 'opeyemi'),
+(87, '2019-04-30', 'Engineer', '', '3500', 'opeyemi'),
+(88, '2019-05-08', 'Toner', '', '3500', 'opeyemi'),
+(89, '2019-05-08', 'T.y', '', '650', 'opeyemi'),
+(90, '2019-05-08', 'Banner', '', '600', 'opeyemi'),
+(91, '2019-05-08', 'Cutting', '', '100', 'opeyemi'),
+(92, '2019-05-08', 'Sim card', '', '300', 'opeyemi'),
+(93, '2019-05-08', 'water', '', '100', 'opeyemi'),
+(95, '2019-05-08', 'Stitching', '', '200', 'opeyemi'),
+(97, '2019-05-08', 'pelican', '', '100', 'opeyemi'),
+(98, '2019-05-08', 'Sticker', '', '800', 'opeyemi'),
+(99, '2019-05-08', 'card', '', '150', 'opeyemi'),
+(100, '2019-05-08', 'lamination and cutting', '', '300', 'opeyemi'),
+(101, '2019-05-08', 'sack', '', '100', 'opeyemi'),
+(102, '2019-05-18', 'Software', '', '200', 'opeyemi'),
+(103, '2019-05-18', 'Stationery', '', '100', 'opeyemi'),
+(104, '2019-05-18', 'petrol', '', '1000', 'opeyemi'),
+(105, '2019-05-23', 'petrol', '', '1700', 'opeyemi'),
+(106, '2019-05-23', 'Sticker', '', '2900', 'opeyemi'),
+(107, '2019-05-23', 'sack', '', '100', 'opeyemi'),
+(108, '2019-05-23', 'Spiral Binding', '', '120', 'opeyemi'),
+(109, '2019-05-23', 'petrol', '', '1700', 'opeyemi'),
+(110, '2019-05-23', 'Bond Paper', '', '1150', 'opeyemi'),
+(111, '2019-05-23', 'Toner', '', '28000', 'opeyemi'),
+(112, '2019-05-31', 'Paper', '', '200', 'opeyemi'),
+(113, '2019-05-31', 'Cutting', '', '800', 'opeyemi'),
+(114, '2019-05-31', 'Paper', '', '1750', 'opeyemi'),
+(115, '2019-05-31', 'water', '', '100', 'opeyemi'),
+(116, '2019-05-31', 'Banner', '', '550', 'opeyemi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `expenses_comment_table`
+--
+
+CREATE TABLE `expenses_comment_table` (
+  `id` int(20) NOT NULL,
+  `user` varchar(200) NOT NULL,
+  `date` datetime NOT NULL,
+  `comment` varchar(10000) NOT NULL,
+  `salesid` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `id` int(20) NOT NULL,
+  `date` date NOT NULL,
+  `fullname` varchar(1000) NOT NULL,
+  `birthday` date NOT NULL,
+  `tel` varchar(20) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `address` varchar(500) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `passport` varchar(300) NOT NULL,
+  `cv` varchar(300) NOT NULL,
+  `role` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`id`, `date`, `fullname`, `birthday`, `tel`, `email`, `address`, `username`, `password`, `passport`, `cv`, `role`) VALUES
+(3, '0000-00-00', 'Raheem Yaqub', '0000-00-00', '', 'yaqub.adesola@gmail.com', '', 'Boldlinks', 'Consistency@2016', '', '', 'super-admin'),
+(9, '2019-01-08', 'Ahmed Shukroh', '0000-00-00', '', 'ahmedshukurat270@gmail.com', '', 'opeyemi', 'admin@2019', '', '', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `records`
+--
+
+CREATE TABLE `records` (
+  `id` int(50) NOT NULL,
+  `date` varchar(20) NOT NULL,
+  `nature_of_job` varchar(1000) NOT NULL,
+  `rate` varchar(1000) NOT NULL,
+  `copies` varchar(1000) NOT NULL,
+  `category` varchar(50) NOT NULL,
+  `amount` varchar(100) NOT NULL,
+  `total` varchar(100) NOT NULL,
+  `balance` varchar(100) NOT NULL,
+  `user` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `records`
+--
+
+INSERT INTO `records` (`id`, `date`, `nature_of_job`, `rate`, `copies`, `category`, `amount`, `total`, `balance`, `user`) VALUES
+(2, '2019-01-02', 'A4 printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(3, '2019-01-02', 'A4 printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(4, '2019-01-02', 'Photocopy', '10', '10', 'Other Services', '100', '100', '', 'opeyemi'),
+(5, '2019-01-02', 'A4 printing', '30', '40', 'Graphics/Printing', '1200', '1200', '', 'opeyemi'),
+(6, '2019-01-02', 'Printing', '20', '57', 'Graphics/Printing', '1100', '1100', '', 'opeyemi'),
+(7, '2019-01-02', 'A4 printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(8, '2019-01-02', 'Photocopy', '10', '2', 'Other Services', '20', '20', '', 'opeyemi'),
+(9, '2019-01-02', 'A4 printing', '20', '50', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(10, '2019-01-02', 'A4 printing', '75', '2', 'Other Services', '150', '150', '', 'opeyemi'),
+(11, '2019-01-02', 'Typing', '150', '1', 'Other Services', '150', '150', '', 'opeyemi'),
+(12, '2019-01-02', 'Printing', '25', '30', 'Graphics/Printing', '750', '750', '', 'opeyemi'),
+(13, '2019-01-02', 'A3 printing', '100', '5', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(14, '2019-01-02', 'A3 printing', '30', '49', 'Graphics/Printing', '1200', '1200', '', 'opeyemi'),
+(15, '2019-01-03', 'Design', '1000', '1', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(16, '2019-01-03', 'A4 printing', '20', '100', 'Graphics/Printing', '2000', '2000', '', 'opeyemi'),
+(17, '2019-01-03', 'A4 printing', '20', '67', 'Graphics/Printing', '1350', '1350', '', 'opeyemi'),
+(18, '2019-01-03', 'A4 printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(19, '2019-01-04', 'Photocopy', '10', '7', 'Other Services', '70', '70', '', 'opeyemi'),
+(20, '2019-01-04', 'A4 printing', '20', '60', 'Graphics/Printing', '1200', '1200', '', 'opeyemi'),
+(21, '2019-01-04', 'Editing', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(23, '2019-01-04', 'A4 printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(24, '2019-01-05', 'Photocopy', '10', '6', 'Other Services', '60', '60', '', 'opeyemi'),
+(25, '2019-01-05', 'Envelope & IV', '15', '100', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(26, '2019-01-05', 'A3 printing', '50', '13', 'Graphics/Printing', '650', '650', '', 'opeyemi'),
+(27, '2019-01-05', 'A4 printing', '20', '50', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(28, '2019-01-04', 'A4 printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(29, '2019-01-05', 'Design', '700', '1', 'Graphics/Printing', '700', '700', '', 'opeyemi'),
+(30, '2019-01-05', 'Sticker', '30', '10', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(31, '2019-01-05', 'shukroh', '', '', 'select', '300', '300', '', 'opeyemi'),
+(32, '2019-01-07', 'Balance for printing', '', '', 'Graphics/Printing', '', '1500', '', 'opeyemi'),
+(33, '2019-01-07', 'I.D card', '300', '1', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(34, '2019-01-07', 'ledger printing', '20', '550', 'Graphics/Printing', '11,000', '11,000', '', 'opeyemi'),
+(35, '2019-01-07', 'A3 printing', '30', '100', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(36, '2019-01-07', 'A4 printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(37, '2019-01-07', 'A4 printing', '30', '10', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(38, '2019-01-07', 'I.D card', '300', '1', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(39, '2019-01-08', 'I.D card printing', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(40, '2019-01-08', 'Envelope', '15', '100', 'Graphics/Printing', '1575', '1575', '', 'opeyemi'),
+(41, '2019-01-08', 'photocopy', '25', '2', 'Other Services', '50', '50', '', 'opeyemi'),
+(42, '2019-01-08', 'A4 printing', '20', '105', 'Graphics/Printing', '2100', '2100', '', 'opeyemi'),
+(43, '2019-01-10', 'A4 printing', '14', '200', 'Graphics/Printing', '2800', '2800', '', 'opeyemi'),
+(44, '2019-01-10', 'I.D card with design', '700', '1', 'Other Services', '700', '700', '', 'opeyemi'),
+(45, '2019-01-10', 'A3 printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(46, '2019-01-10', 'A4 printing', '30', '8', 'Graphics/Printing', '240', '240', '', 'opeyemi'),
+(47, '2019-01-10', 'A3 printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(48, '2019-01-10', 'A4 printing', '30', '100', 'Graphics/Printing', '3000', '2000', '1000', 'opeyemi'),
+(49, '2019-01-10', 'A4 printing', '30', '100', 'Graphics/Printing', '3000', '2000', '1000', 'opeyemi'),
+(50, '2019-01-10', 'A4 printing', '30', '100', 'Graphics/Printing', '3000', '2000', '1000', 'opeyemi'),
+(51, '2019-01-10', 'A4 printing', '30', '100', 'Graphics/Printing', '3000', '2000', '1000', 'opeyemi'),
+(52, '2019-01-10', 'A4 printing', '30', '100', 'Graphics/Printing', '3000', '2000', '1000', 'opeyemi'),
+(53, '2019-01-10', 'A4 printing', '30', '100', 'Graphics/Printing', '3000', '2000', '1000', 'opeyemi'),
+(55, '2019-01-11', 'A4 printing', '50', '5', 'Graphics/Printing', '250', '250', '', 'opeyemi'),
+(56, '2019-01-11', 'balance for printing', '', '', 'Graphics/Printing', '', '1000', '', 'opeyemi'),
+(57, '2019-01-11', 'scanning & internet', '', '5', 'Other Services', '450', '450', '', 'opeyemi'),
+(58, '2019-01-11', 'Advance for typing and printing', '80', '90', 'Other Services', '7200', '4000', '3200', 'opeyemi'),
+(59, '2019-01-11', 'PHOTOCOPY', '10', '1', 'Other Services', '10', '10', '', 'opeyemi'),
+(60, '2019-01-11', 'A4 printing', '50', '5', 'Graphics/Printing', '250', '250', '', 'opeyemi'),
+(61, '2019-01-11', 'A4 printing', '', '4', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(62, '2019-01-11', 'Sogelola Victoria', '', '', 'Training', '56000', '40000', '16000', 'opeyemi'),
+(63, '2019-01-11', 'Lasisi Taofeek', '', '', 'Training', '100000', '25000', '75000', 'opeyemi'),
+(64, '2019-01-11', 'A4 printing', '15', '205', 'Graphics/Printing', '6,050', '2000', '4,050', 'opeyemi'),
+(65, '2019-01-11', 'photocopy', '10', '10', 'Other Services', '100', '100', '', 'opeyemi'),
+(66, '2019-01-11', 'A4 printing', '18', '58', 'Graphics/Printing', '1050', '1050', '', 'opeyemi'),
+(67, '2019-01-11', 'scannning', '50', '4', 'Other Services', '200', '200', '', 'opeyemi'),
+(68, '2019-01-11', 'photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(69, '2019-01-11', 'A4 printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(70, '2019-01-11', 'A4 printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(71, '2019-01-11', 'A4 printing', '50', '4', 'Graphics/Printing', '200', '000', '200', 'opeyemi'),
+(72, '2019-01-11', 'A4 printing', '50', '13', 'Graphics/Printing', '650', '650', '', 'opeyemi'),
+(74, '2019-01-11', 'A4 printing', '15', '150', 'Graphics/Printing', '2250', '2250', '', 'opeyemi'),
+(75, '2019-01-11', 'A4 printing', '20', '100', 'Graphics/Printing', '2000', '2000', '', 'opeyemi'),
+(76, '2019-01-11', 'A4 printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(77, '2019-01-11', 'A4 printing', '100', '5', 'Graphics/Printing', '550', '550', '', 'opeyemi'),
+(78, '2019-01-11', 'I.D card', '300', '2', 'Other Services', '600', '600', '', 'opeyemi'),
+(79, '2019-01-12', 'I.D card', '500', '1', 'Other Services', '500', '500', '', 'opeyemi'),
+(80, '2019-01-12', 'A4 printing', '21.3', '150', 'Graphics/Printing', '3,200', '3,200', '', 'opeyemi'),
+(81, '2019-01-12', 'A4 printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(82, '2019-01-12', 'A4 printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(83, '2019-01-12', 'A4 printing', '20', '500', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(84, '2019-01-12', 'A4 printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(85, '2019-01-12', 'I.D card', '300', '2', 'Other Services', '600', '600', '', 'opeyemi'),
+(86, '2019-01-12', 'A3 printing', '30', '106', 'Graphics/Printing', '3200', '3200', '', 'opeyemi'),
+(87, '2019-01-14', 'A4 Printing', '16', '25', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(88, '2019-01-14', 'A4 printing', '20', '60', 'Graphics/Printing', '1200', '1200', '', 'opeyemi'),
+(89, '2019-01-14', 'A4 printing', '20', '60', 'Graphics/Printing', '1200', '1200', '', 'opeyemi'),
+(90, '2019-01-14', 'A4 printing', '15', '200', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(91, '2019-01-14', 'Photocopy', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(92, '2019-01-14', 'photocopy', '10', '5', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(93, '2019-01-14', 'A4 printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(94, '2019-01-14', 'I.D card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(95, '2019-01-14', 'A4 printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(96, '2019-01-14', 'photocopy', '10', '1', 'Other Services', '10', '10', '', 'opeyemi'),
+(97, '2019-01-14', 'A4 Printing', '15', '100', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(98, '2019-01-14', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(99, '2019-01-14', 'A3 printing', '25', '260', 'Graphics/Printing', '6500', '6500', '', 'opeyemi'),
+(100, '2019-01-14', 'A3 Printing', '15', '650', 'Graphics/Printing', '9750', '9750', '', 'opeyemi'),
+(101, '2019-01-14', 'A4 printing', '20', '8', 'Graphics/Printing', '150', '150', '', 'opeyemi'),
+(102, '2019-01-14', 'A4 printing', '20', '10', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(103, '2019-01-14', 'A3 printing', '30', '39', 'Graphics/Printing', '1170', '1170', '', 'opeyemi'),
+(104, '2019-01-14', 'A3 printing', '30', '200', 'Other Services', '600', '6000', '', 'opeyemi'),
+(105, '2019-01-16', 'A4 Printing', '20', '50', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(106, '2019-01-16', 'A4 Printing', '20', '6', 'Graphics/Printing', '120', '120', '', 'opeyemi'),
+(107, '2019-01-16', 'A3 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(108, '2019-01-16', 'A4 Printing', '50', '6', 'select', '300', '300', '', 'opeyemi'),
+(109, '2019-01-16', 'Photocopy', '10', '6', 'select', '60', '60', '', 'opeyemi'),
+(110, '2019-01-16', 'A4 Printing', '18', '100', 'Graphics/Printing', '1800', '1800', '', 'opeyemi'),
+(111, '2019-01-16', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(112, '2019-01-16', 'Design', '500', '1', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(114, '2019-01-16', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(115, '2019-01-16', 'Photocopy', '10', '15', 'Graphics/Printing', '150', '150', '', 'opeyemi'),
+(116, '2019-01-16', 'A4 Printing', '20', '30', 'Graphics/Printing', '600', '600', '', 'opeyemi'),
+(117, '2019-01-16', 'A4 Printing', '50', '1', 'select', '50', '50', '', 'opeyemi'),
+(118, '2019-01-16', 'Balance For Printing', '', '', 'Graphics/Printing', '4250', '4000', '250', 'opeyemi'),
+(119, '2019-01-16', 'Balance For Printing& Typing', '', '', 'Graphics/Printing', '3120', '3120', '', 'opeyemi'),
+(120, '2019-01-16', 'A4 printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(121, '2019-01-17', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(122, '2019-01-17', 'Typing & printing', '200', '1', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(123, '2019-01-17', 'A3 Printing', '20', '500', 'Graphics/Printing', '10000', '10000', '', 'opeyemi'),
+(124, '2019-01-17', 'I.D card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(125, '2019-01-17', 'Internet & Scanning', '25', '1', 'Other Services', '250', '250', '', 'opeyemi'),
+(126, '2019-01-17', 'A5 printing', '15', '200', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(127, '2019-01-17', 'A4 Printing', '25', '105', 'Graphics/Printing', '2625', '1000', '1625', 'opeyemi'),
+(129, '2019-01-17', 'A4 Printing', '20', '125', 'Graphics/Printing', '2500', '2500', '', 'opeyemi'),
+(130, '2019-01-17', 'I.D card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(131, '2019-01-19', 'I.D Card', '250', '6', 'Other Services', '1500', '1500', '', 'opeyemi'),
+(134, '2019-01-19', 'Photocopy', '10', '14', 'Other Services', '140', '140', '', 'opeyemi'),
+(135, '2019-01-19', 'Balance for Printing', '', '', 'select', '000', '1860', '', 'opeyemi'),
+(136, '2019-01-19', 'Photocopy', '10', '4', 'Other Services', '40', '40', '', 'opeyemi'),
+(137, '2019-01-19', 'Photocopy', '10', '3', 'Other Services', '30', '30', '', 'opeyemi'),
+(138, '2019-01-19', 'Design', '700', '1', 'Graphics/Printing', '700', '700', '', 'opeyemi'),
+(139, '2019-01-19', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(140, '2019-01-19', 'A4 Printing', '20', '20', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(141, '2019-01-19', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(142, '2019-01-19', 'A3 Printing', '54', '11', 'Graphics/Printing', '600', '600', '', 'opeyemi'),
+(143, '2019-01-19', 'A4 Printing', '21', '42', 'Graphics/Printing', '900', '900', '', 'opeyemi'),
+(144, '2019-01-19', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(145, '2019-01-19', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'Boldlinks'),
+(146, '2019-01-19', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'Boldlinks'),
+(147, '2019-01-19', 'A4 Printing', '66', '3', 'Graphics/Printing', '200', '200', '', 'Boldlinks'),
+(148, '2019-01-19', 'A4 Printing', '50', '5', 'Graphics/Printing', '250', '250', '', 'Boldlinks'),
+(149, '2019-01-19', 'Photocopy', '7.25', '200', 'Other Services', '1250', '1250', '200', 'Boldlinks'),
+(150, '2019-01-19', 'Design', '500', '1', 'Graphics/Printing', '500', '500', '', 'Boldlinks'),
+(151, '2019-01-19', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'Boldlinks'),
+(152, '2019-01-19', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'Boldlinks'),
+(153, '2019-01-19', 'Typing & Printing', '150', '1', 'Graphics/Printing', '150', '150', '', 'Boldlinks'),
+(154, '2019-01-19', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'Boldlinks'),
+(155, '2019-01-19', 'Scanning', '50', '1', 'Other Services', '50', '50', '', 'Boldlinks'),
+(156, '2019-01-19', 'A3 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'Boldlinks'),
+(157, '2019-01-19', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'Boldlinks'),
+(158, '2019-01-19', 'Design & Printing', '120', '2', 'Graphics/Printing', '6000', '6000', '', 'Boldlinks'),
+(159, '2019-01-21', 'Internet & Printing', '200', '2', 'Other Services', '400', '400', '', 'opeyemi'),
+(160, '2019-01-21', 'Editing', '350', '1', 'Other Services', '350', '350', '', 'opeyemi'),
+(165, '2019-01-21', 'A4 Printing', '50', '3', 'Graphics/Printing', '150', '150', '', 'opeyemi'),
+(166, '2019-01-21', 'Photocopy', '10', '10', 'Other Services', '100', '100', '', 'opeyemi'),
+(167, '2019-01-21', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(168, '2019-01-21', 'Photocopy', '10', '2', 'Other Services', '20', '20', '', 'opeyemi'),
+(169, '2019-01-21', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(170, '2019-01-21', 'lsmjc Hosting & Support', '', '', 'Web Projects', '50000', '20000', '30000', 'opeyemi'),
+(171, '2019-01-21', 'Sifau Salam Design & Printing', '', '', 'Graphics/Printing', '6500', '6500', '', 'opeyemi'),
+(172, '2019-01-21', 'Product design & Printing', '', '', 'Graphics/Printing', '8500', '8500', '', 'opeyemi'),
+(174, '2019-01-22', 'I.D Card', '300', '6', 'Other Services', '1500', '1500', '300', 'opeyemi'),
+(175, '2019-01-22', 'Typing & Printing', '150', '1', 'Other Services', '150', '150', '', 'opeyemi'),
+(176, '2019-01-22', 'Photocopy', '5', '50', 'Other Services', '250', '250', '', 'opeyemi'),
+(177, '2019-01-22', 'A4 Printing', '20', '50', 'Graphics/Printing', '1200', '1200', '', 'opeyemi'),
+(178, '2019-01-22', 'A4 Printing', '20', '250', 'Graphics/Printing', '5000', '5000', '', 'opeyemi'),
+(179, '2019-01-22', 'A3 Printing', '25', '200', 'Graphics/Printing', '5000', '5000', '', 'opeyemi'),
+(180, '2019-01-22', 'Envelope', '15', '200', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(181, '2019-01-22', 'I.D Card', '250', '23', 'Other Services', '5750', '3000', '2750', 'opeyemi'),
+(182, '2019-01-22', 'A4 Printing', '100', '6', 'Graphics/Printing', '600', '000', '600', 'opeyemi'),
+(183, '2019-01-22', 'A4 Printing', '50', '12', 'Graphics/Printing', '600', '600', '', 'opeyemi'),
+(184, '2019-01-22', 'Balance For I.DE Card', '', '', 'select', '000', '2750', '', 'opeyemi'),
+(185, '2019-01-22', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(186, '2019-01-22', 'Design', '700', '1', 'Other Services', '700', '700', '', 'opeyemi'),
+(187, '2019-01-22', 'A4 Printing', '15', '100', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(188, '2019-01-25', 'Design and printing', '500', '1', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(189, '2019-01-25', 'A4 Printing', '24.5', '155', 'Graphics/Printing', '3800', '3800', '', 'opeyemi'),
+(190, '2019-01-25', 'A4 Printing', '20', '50', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(191, '2019-01-25', 'Envelope', '12.3', '138', 'Graphics/Printing', '1700', '1700', '', 'opeyemi'),
+(192, '2019-01-25', 'A4 Printing', '15', '120', 'Graphics/Printing', '1800', '1800', '', 'opeyemi'),
+(194, '2019-01-25', 'A4 Printing', '1000', '2', 'Graphics/Printing', '2000', '2000', '', 'opeyemi'),
+(195, '2019-01-25', 'A4 Printing', '14', '300', 'Graphics/Printing', '4200', '4000', '200', 'opeyemi'),
+(196, '2019-01-25', 'A3 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(197, '2019-01-25', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(198, '2019-01-25', 'LSMSC hosting and support', '', '', 'Other Services', '50000', '50000', '', 'opeyemi'),
+(199, '2019-01-25', 'I.D card', '700', '1', 'Other Services', '700', '700', '', 'opeyemi'),
+(200, '2019-01-25', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(201, '2019-01-25', 'I.D card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(202, '2019-01-25', 'A4 Printing', '100', '4', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(203, '2019-01-25', 'A4 Printing', '22', '50', 'Graphics/Printing', '1100', '1100', '', 'opeyemi'),
+(204, '2019-01-25', 'Envelope', '13', '200', 'Graphics/Printing', '2600', '2600', '', 'opeyemi'),
+(205, '2019-01-25', 'A4 Printing balance', '', '', 'select', '000', '200', '', 'opeyemi'),
+(206, '2019-01-25', 'A4 Printing', '14', '110', 'Graphics/Printing', '1500', '1300', '200', 'opeyemi'),
+(207, '2019-01-25', 'Photocopy', '10', '2', 'Other Services', '20', '20', '', 'opeyemi'),
+(208, '2019-01-25', 'A4 Printing', '20', '100', 'Graphics/Printing', '2000', '0000', '2000', 'opeyemi'),
+(209, '2019-01-25', 'Design', '1000', '1', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(210, '2019-01-28', 'ID.Card', '500', '1', 'Other Services', '500', '500', '', 'opeyemi'),
+(211, '2019-01-28', 'A4 Printing', '28', '21', 'Graphics/Printing', '600', '600', '', 'opeyemi'),
+(212, '2019-01-28', 'A3 Printing', '25', '155', 'Graphics/Printing', '3875', '3000', '875', 'opeyemi'),
+(213, '2019-01-28', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(215, '2019-01-28', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(216, '2019-01-28', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(217, '2019-01-28', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(218, '2019-01-28', 'Passport', '500', '12', 'Other Services', '500', '500', '', 'opeyemi'),
+(219, '2019-01-28', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(220, '2019-01-28', 'A4 Printing', '25', '12', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(221, '2019-01-28', 'A4 Printing', '16', '25', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(222, '2019-01-28', 'Balance For Printing', '', '', 'Other Services', '0000', '850', '', 'opeyemi'),
+(223, '2019-01-28', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '000', '100', 'opeyemi'),
+(224, '2019-01-30', 'Ledger Printing', '18', '200', 'Graphics/Printing', '3600', '3600', '', 'opeyemi'),
+(225, '2019-01-30', 'lsmjc Banner', '2500', '1', 'Other Services', '2500', '2500', '', 'opeyemi'),
+(226, '2019-01-30', 'A4 printing', '50', '5', 'Graphics/Printing', '250', '250', '', 'opeyemi'),
+(227, '2019-01-30', 'A4 Printing', '25', '24', 'Graphics/Printing', '600', '600', '', 'opeyemi'),
+(228, '2019-01-30', 'Passport', '200', '4', 'Other Services', '200', '200', '', 'opeyemi'),
+(229, '2019-01-30', 'A3 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(230, '2019-01-30', 'I.D card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(231, '2019-01-30', 'A4 Printing', '20', '50', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(232, '2019-01-30', 'A4 Printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(233, '2019-01-31', 'A4 Printing', '200', '15', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(234, '2019-01-31', 'A3 Printing', '18', '304', 'Graphics/Printing', '5475', '5475', '', 'opeyemi'),
+(235, '2019-01-31', 'I.D Card', '300', '2', 'Graphics/Printing', '600', '600', '', 'opeyemi'),
+(236, '2019-01-31', 'A4 Printing', '', '', 'Graphics/Printing', '000', '100', '', 'opeyemi'),
+(237, '2019-01-31', 'A4 Printing', '25', '10', 'Graphics/Printing', '250', '250', '', 'opeyemi'),
+(238, '2019-01-31', 'Photocopy', '10', '3', 'Other Services', '30', '30', '', 'opeyemi'),
+(239, '2019-01-31', 'A4 Printing', '17.6', '170', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(240, '2019-02-01', 'web development for Resograde Montessori school', '', '', 'Web Projects', '200000', '110000', '90000', 'opeyemi'),
+(242, '2019-02-01', 'Balance For Printing', '', '', 'Graphics/Printing', '000', '1000', '600', 'opeyemi'),
+(243, '2019-02-01', 'A4 Prinitng', '25', '20', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(244, '2019-02-01', 'Photocopy', '28.5', '7', 'Other Services', '200', '200', '', 'opeyemi'),
+(245, '2019-02-02', 'A4 Printing', '25', '20', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(246, '2019-02-02', 'Envelope', '15', '100', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(247, '2019-02-02', 'A4 Printing', '14', '240', 'Graphics/Printing', '3350', '3350', '', 'opeyemi'),
+(248, '2019-02-02', 'A3 Printing', '30', '60', 'Graphics/Printing', '1800', '1800', '', 'opeyemi'),
+(249, '2019-02-02', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(250, '2019-02-02', 'Envelope', '14', '125', 'Graphics/Printing', '1750', '1750', '', 'opeyemi'),
+(251, '2019-02-02', 'Balance for printing', '', '', 'Other Services', '000', '200', '', 'opeyemi'),
+(252, '2019-02-02', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(253, '2019-02-06', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(254, '2019-02-06', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(255, '2019-02-06', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(256, '2019-02-06', 'A4 Printing', '20', '50', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(257, '2019-02-06', 'Paper', '', '50', 'Other Services', '150', '150', '', 'opeyemi'),
+(258, '2019-02-06', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(259, '2019-02-06', 'A4 Printing', '15', '80', 'Graphics/Printing', '1200', '1200', '', 'opeyemi'),
+(260, '2019-02-06', 'Editing', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(261, '2019-02-06', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(262, '2019-02-06', 'A3 Printing', '200', '1', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(263, '2019-02-06', 'A4 Printing', '28', '53', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(264, '2019-02-06', 'Photocopy', '10', '1', 'Other Services', '10', '10', '', 'opeyemi'),
+(265, '2019-02-06', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(266, '2019-02-06', 'Advance For Printing', '', '', 'Graphics/Printing', '000', '3000', '', 'opeyemi'),
+(267, '2019-02-06', 'A4 Printing', '30', '12', 'Graphics/Printing', '360', '360', '', 'opeyemi'),
+(268, '2019-02-06', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(269, '2019-02-06', 'Photocopy', '10', '2', 'Other Services', '20', '20', '', 'opeyemi'),
+(270, '2019-02-06', 'A4 Printing', '31.8', '11', 'Graphics/Printing', '350', '350', '', 'opeyemi'),
+(271, '2019-02-06', 'Scanning', '50', '1', 'Other Services', '50', '50', '', 'opeyemi'),
+(272, '2019-02-11', 'A3 Printing', '10', '50', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(273, '2019-02-11', 'A4 Printing', '30', '20', 'Graphics/Printing', '600', '600', '', 'opeyemi'),
+(274, '2019-02-11', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(275, '2019-02-11', 'A4 Printing', '15', '153', 'Graphics/Printing', '2300', '2300', '', 'opeyemi'),
+(276, '2019-02-11', 'A4 Printing', '25', '40', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(277, '2019-02-11', 'A4 Printing', '30', '20', 'Graphics/Printing', '600', '600', '', 'opeyemi'),
+(278, '2019-02-11', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(279, '2019-02-11', 'A4 Printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(280, '2019-02-11', 'Advance for typing', '', '', 'Other Services', '000', '500', '', 'opeyemi'),
+(281, '2019-02-11', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(282, '2019-02-11', 'Okelola Daniel', '', '', 'Training', '56000', '10000', '46000', 'opeyemi'),
+(283, '2019-02-11', 'Adedeji Peace', '', '', 'Training', '100000', '20000', '80000', 'opeyemi'),
+(284, '2019-02-11', 'A4 Printing', '15', '200', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(285, '2019-02-11', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(286, '2019-02-11', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(287, '2019-02-11', 'Design', '1000', '1', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(288, '2019-02-11', 'A4 Printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(289, '2019-02-11', 'Photocopy', '10', '2', 'Other Services', '20', '20', '', 'opeyemi'),
+(290, '2019-02-11', 'Design & Printing', '1000', '1', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(291, '2019-02-11', 'A3 Printing', '35', '56', 'Graphics/Printing', '1960', '1960', '', 'opeyemi'),
+(292, '2019-02-11', 'A4 Printing', '15', '101', 'Graphics/Printing', '1515', '1515', '', 'opeyemi'),
+(293, '2019-02-11', 'Envelope', '13', '150', 'Graphics/Printing', '1950', '1950', '', 'opeyemi'),
+(294, '2019-02-11', 'A3 Printing', '25', '200', 'Graphics/Printing', '5000', '5000', '', 'opeyemi'),
+(295, '2019-02-11', 'A4 Printing', '15', '50', 'Graphics/Printing', '750', '750', '', 'opeyemi'),
+(296, '2019-02-11', 'A4 Printing', '100', '5', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(297, '2019-02-11', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(298, '2019-02-11', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(299, '2019-02-11', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(300, '2019-02-11', 'Editing & Printing', '300', '1', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(301, '2019-02-11', 'Photocopy', '10', '2', 'Other Services', '20', '20', '', 'opeyemi'),
+(302, '2019-02-11', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(303, '2019-02-13', 'A4 Printing', '29.6', '27', 'Graphics/Printing', '800', '800', '', 'opeyemi'),
+(304, '2019-02-13', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(305, '2019-02-13', 'Envelope', '15', '100', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(306, '2019-02-13', 'A3 Printing', '35', '60', 'Graphics/Printing', '2100', '2100', '', 'opeyemi'),
+(307, '2019-02-13', 'Photocopy', '10', '14', 'Graphics/Printing', '140', '140', '', 'opeyemi'),
+(308, '2019-02-13', 'A4 Printing', '15', '150', 'Graphics/Printing', '2250', '2250', '', 'opeyemi'),
+(309, '2019-02-13', 'Envelope', '13', '235', 'Graphics/Printing', '3055', '3055', '', 'opeyemi'),
+(310, '2019-02-13', 'Balance For Printing', '', '', 'Graphics/Printing', '000', '600', '', 'opeyemi'),
+(311, '2019-02-13', 'A4 Printing', '50', '6', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(312, '2019-02-13', 'A4 Printing', '30', '20', 'Graphics/Printing', '600', '600', '', 'opeyemi'),
+(313, '2019-02-14', 'typing & printing', '150', '3', 'Other Services', '450', '450', '', 'opeyemi'),
+(314, '2019-02-14', 'A4 Printing', '20', '40', 'Graphics/Printing', '800', '800', '', 'opeyemi'),
+(315, '2019-02-15', 'A4 Printing', '20', '200', 'Graphics/Printing', '4000', '4000', '', 'opeyemi'),
+(316, '2019-02-15', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(317, '2019-02-15', 'A4 Printing', '70', '5', 'Graphics/Printing', '350', '350', '', 'opeyemi'),
+(318, '2019-02-15', 'A4 Printing', '20', '50', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(319, '2019-02-15', 'A4 Printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(320, '2019-02-15', 'A3 Printing', '80', '5', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(321, '2019-02-15', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(322, '2019-02-15', 'A4 Printing', '50', '6', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(323, '2019-02-15', 'I.D Card', '250', '3', 'Graphics/Printing', '750', '750', '', 'opeyemi'),
+(324, '2019-02-25', 'Envelope', '14.6', '75', 'Graphics/Printing', '1100', '1100', '', 'opeyemi'),
+(325, '2019-02-25', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(326, '2019-02-25', 'Ledger', '50', '8', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(327, '2019-02-25', 'Balance For Printing', '', '', 'select', '000', '1200', '300', 'opeyemi'),
+(328, '2019-02-25', 'Internet', '', '', 'Other Services', '200', '200', '', 'opeyemi'),
+(329, '2019-02-25', 'A4 Printing', '100', '1', 'Graphics/Printing', '', '100', '100', 'opeyemi'),
+(330, '2019-02-25', 'Internet & Printing', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(331, '2019-02-25', 'A4 Printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(332, '2019-02-25', 'Photocopy', '10', '10', 'Other Services', '100', '100', '', 'opeyemi'),
+(333, '2019-02-25', 'Photocopy', '10', '14', 'Other Services', '140', '140', '', 'opeyemi'),
+(334, '2019-02-25', 'A4 Printing', '20', '26', 'Graphics/Printing', '520', '520', '', 'opeyemi'),
+(335, '2019-02-25', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(336, '2019-02-25', 'Typing & Printing', '200', '2', 'Other Services', '400', '400', '', 'opeyemi'),
+(337, '2019-02-25', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(338, '2019-02-25', 'A4 Printing', '15', '300', 'Graphics/Printing', '4500', '4500', '', 'opeyemi'),
+(339, '2019-02-25', 'A4 Printing', '20', '50', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(340, '2019-02-25', 'Envelope', '13', '100', 'Graphics/Printing', '1300', '1300', '', 'opeyemi'),
+(341, '2019-02-25', 'A3 Printing', '25', '210', 'Graphics/Printing', '5250', '5250', '', 'opeyemi'),
+(342, '2019-02-25', 'A4 Printing', '15', '200', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(343, '2019-02-25', 'A4 Printing', '200', '1', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(344, '2019-02-25', 'Coloured photocopy', '20', '25', 'Other Services', '500', '500', '', 'opeyemi'),
+(345, '2019-02-25', 'Photocopy', '10', '10', 'Other Services', '100', '100', '', 'opeyemi'),
+(346, '2019-02-25', 'Internet', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(347, '2019-02-25', 'Photocopy', '10', '15', 'Other Services', '150', '150', '', 'opeyemi'),
+(348, '2019-02-25', 'A3 Printing', '25', '100', 'Graphics/Printing', '2500', '2500', '', 'opeyemi'),
+(349, '2019-02-25', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(350, '2019-02-25', 'Design', '700', '1', 'Other Services', '700', '700', '', 'opeyemi'),
+(351, '2019-02-25', 'A4 Printing', '22.8', '140', 'Graphics/Printing', '3200', '3200', '', 'opeyemi'),
+(352, '2019-02-25', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(353, '2019-02-25', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(354, '2019-02-25', 'A4 Printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(355, '2019-02-25', 'Typing & Printing', '150', '1', 'Other Services', '150', '150', '', 'opeyemi'),
+(356, '2019-02-25', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(357, '2019-02-25', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(358, '2019-02-25', 'A3 Printing', '100', '3', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(359, '2019-02-25', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(360, '2019-02-25', 'A4 Printing', '', '3', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(361, '2019-02-25', 'Passport Photograph', '', '4', 'Other Services', '200', '200', '', 'opeyemi'),
+(362, '2019-02-25', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(363, '2019-02-25', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(364, '2019-02-25', 'Photocopy', '10', '3', 'Other Services', '30', '30', '', 'opeyemi'),
+(366, '2019-02-25', 'A3 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(367, '2019-02-25', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(368, '2019-02-25', 'A4 Printing', '50', '30', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(369, '2019-02-25', 'Internet', '', '', 'Other Services', '500', '500', '', 'opeyemi'),
+(370, '2019-02-25', 'Photocopy', '20', '7', 'Other Services', '140', '140', '', 'opeyemi'),
+(371, '2019-02-25', 'Business Cards', '', '100', 'Other Services', '4000', '4000', '', 'opeyemi'),
+(372, '2019-02-27', 'A3 Printing', '50', '7', 'Graphics/Printing', '350', '350', '', 'opeyemi'),
+(373, '2019-02-27', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(374, '2019-02-27', 'A4 Printing', '50', '10', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(375, '2019-02-27', 'Photocopy', '10', '14', 'Other Services', '140', '140', '', 'opeyemi'),
+(376, '2019-02-27', 'Passport Photograph', '', '8', 'Other Services', '400', '400', '', 'opeyemi'),
+(377, '2019-02-27', 'Photocopy', '10', '10', 'Other Services', '100', '100', '', 'opeyemi'),
+(378, '2019-02-27', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(379, '2019-02-27', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(380, '2019-02-27', 'Editing', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(381, '2019-02-27', 'A4 Printing', '20', '105', 'Graphics/Printing', '2100', '2100', '', 'opeyemi'),
+(382, '2019-02-27', 'A4 Printing', '15', '200', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(383, '2019-02-27', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(384, '2019-02-27', 'Design', '1000', '2', 'Other Services', '2000', '2000', '', 'opeyemi'),
+(385, '2019-03-01', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(386, '2019-03-01', 'A4 Printing', '15', '15', 'Graphics/Printing', '3750', '3750', '', 'opeyemi'),
+(387, '2019-03-01', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(388, '2019-03-01', 'A4 Printing', '47.3', '19', 'Graphics/Printing', '900', '900', '', 'opeyemi'),
+(389, '2019-03-01', 'A4 Printing', '20.7', '106', 'Graphics/Printing', '2200', '2200', '', 'opeyemi'),
+(390, '2019-03-01', 'A3 Printing', '37', '27', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(391, '2019-03-01', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(392, '2019-03-01', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(394, '2019-03-01', 'A4 Printing', '20', '205', 'Graphics/Printing', '4000', '4000', '', 'opeyemi'),
+(395, '2019-03-01', 'Envelope', '13', '100', 'Graphics/Printing', '1300', '1300', '', 'opeyemi'),
+(396, '2019-03-01', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(397, '2019-03-01', 'A5 Printing', '15', '50', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(398, '2019-03-01', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(399, '2019-03-01', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(400, '2019-03-01', 'A4 Printing', '83', '6', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(401, '2019-03-01', 'Envelope', '10', '250', 'Graphics/Printing', '2500', '2500', '', 'opeyemi'),
+(402, '2019-03-11', 'A4 printing', '23.6', '338', 'Graphics/Printing', '8000', '8000', '', 'opeyemi'),
+(403, '2019-03-11', 'A3 printing', '100', '3', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(404, '2019-03-11', 'A4 printing', '20', '100', 'Graphics/Printing', '2000', '2000', '', 'opeyemi'),
+(405, '2019-03-11', 'A4 printing', '12', '114', 'Graphics/Printing', '1368', '1000', '386', 'opeyemi'),
+(406, '2019-03-11', 'I.D Card', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(407, '2019-03-11', 'A4 printing', '15', '300', 'Graphics/Printing', '4500', '4500', '', 'opeyemi'),
+(408, '2019-03-11', 'Design', '1000', '2', 'Other Services', '2000', '2000', '', 'opeyemi'),
+(409, '2019-03-11', 'Design', '600', '1', 'Other Services', '600', '600', '', 'opeyemi'),
+(410, '2019-03-11', 'A4 printing', '20', '100', 'Graphics/Printing', '2000', '2000', '', 'opeyemi'),
+(411, '2019-03-11', 'A3 printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(412, '2019-03-11', 'A4 printing', '20', '100', 'Graphics/Printing', '2000', '2000', '', 'opeyemi'),
+(413, '2019-03-11', 'Adance for Printing', '', '', 'Graphics/Printing', '46000', '20000', '26000', 'opeyemi'),
+(414, '2019-03-11', 'typing & printing', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(415, '2019-03-11', 'scanning', '100', '1', 'Other Services', '100', '100', '', 'opeyemi'),
+(416, '2019-03-11', 'A4 printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(417, '2019-03-11', 'A3 printing', '30', '90', 'Graphics/Printing', '2700', '2700', '', 'opeyemi'),
+(418, '2019-03-11', 'A4 printing', '30', '78', 'Graphics/Printing', '2340', '2340', '', 'opeyemi'),
+(419, '2019-03-11', 'A4 printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(420, '2019-03-11', 'A4 printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(421, '2019-03-11', 'A4 printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(422, '2019-03-11', 'A3 printing', '30', '200', 'Graphics/Printing', '6000', '6000', '', 'opeyemi'),
+(423, '2019-03-11', 'typing & printing', '', '', 'Other Services', '700', '700', '', 'opeyemi'),
+(424, '2019-03-11', 'I.D Card', '250', '1', 'Graphics/Printing', '250', '250', '', 'opeyemi'),
+(425, '2019-03-11', 'passport', '', '4', 'Other Services', '200', '200', '', 'opeyemi'),
+(426, '2019-03-11', 'A4 printing', '100', '5', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(427, '2019-03-11', 'A4 printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(428, '2019-03-11', 'A4 printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(429, '2019-03-11', 'Design', '1000', '1', 'Other Services', '1000', '1000', '', 'opeyemi'),
+(430, '2019-03-11', 'photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(431, '2019-03-11', 'A4 printing', '15', '200', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(432, '2019-03-11', 'scanning', '50', '4', 'Other Services', '200', '200', '', 'opeyemi'),
+(433, '2019-03-11', 'nodus advance for priting', '', '', 'Other Services', '0000', '1000', '', 'opeyemi'),
+(434, '2019-03-11', 'I.D Card', '400', '1', 'Other Services', '400', '400', '', 'opeyemi'),
+(435, '2019-03-11', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(436, '2019-03-11', 'A4 printing', '20', '10', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(437, '2019-03-11', 'A4 printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(438, '2019-03-11', 'Envelope', '13', '200', 'Graphics/Printing', '2600', '2500', '100', 'opeyemi'),
+(439, '2019-03-11', 'Design', '1000', '1', 'Other Services', '1000', '1000', '', 'opeyemi'),
+(440, '2019-03-11', 'A4 printing', '25', '2', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(441, '2019-03-11', 'Editing & Printing', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(442, '2019-03-11', 'A3 printing', '100', '5', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(443, '2019-03-11', 'A4 printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(444, '2019-03-11', 'photocopy', '10', '10', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(445, '2019-03-11', 'Envelope', '13', '193', 'Graphics/Printing', '2500', '2500', '', 'opeyemi'),
+(446, '2019-03-11', 'A3 printing', '25', '40', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(447, '2019-03-11', 'typing & printing', '200', '1', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(448, '2019-03-11', 'Design', '700', '1', 'Other Services', '700', '700', '', 'opeyemi'),
+(449, '2019-03-11', 'A4 printing', '15', '110', 'Graphics/Printing', '1650', '1300', '350', 'opeyemi'),
+(450, '2019-03-11', 'passport', '', '', 'Other Services', '300', '300', '', 'opeyemi'),
+(451, '2019-03-11', 'A4 printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(452, '2019-03-11', 'A4 printing', '20', '16', 'Graphics/Printing', '320', '320', '', 'opeyemi'),
+(453, '2019-03-11', 'A4 printing', '16', '150', 'Graphics/Printing', '2400', '2400', '', 'opeyemi'),
+(454, '2019-03-11', 'A4 printing', '25', '10', 'Graphics/Printing', '250', '250', '', 'opeyemi'),
+(455, '2019-03-11', 'A3 printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(456, '2019-03-11', 'A4 printing', '25', '24', 'Graphics/Printing', '600', '600', '', 'opeyemi'),
+(457, '2019-03-11', 'photocopy', '10', '15', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(458, '2019-03-11', 'A4 printing', '20', '34', 'Graphics/Printing', '700', '700', '', 'opeyemi'),
+(459, '2019-03-11', 'Internet & Editing', '500', '1', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(460, '2019-03-11', 'A4 printing', '15', '110', 'Graphics/Printing', '1650', '1650', '', 'opeyemi'),
+(461, '2019-03-11', 'photocopy', '10', '2', 'Other Services', '20', '20', '', 'opeyemi'),
+(462, '2019-03-11', 'A4 printing', '100', '3', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(463, '2019-03-11', 'A4 printing', '20', '100', 'Graphics/Printing', '2000', '2000', '', 'opeyemi'),
+(464, '2019-03-11', 'typing & printing', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(465, '2019-03-11', 'photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(466, '2019-03-11', 'A4 printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(467, '2019-03-11', 'A4 printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(468, '2019-03-11', 'Design', '500', '1', 'Other Services', '500', '500', '', 'opeyemi'),
+(469, '2019-03-15', 'Envelope', '13', '150', 'Graphics/Printing', '2000', '2000', '', 'opeyemi'),
+(470, '2019-03-15', 'A4 Printing', '20', '50', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(471, '2019-03-15', 'A4 Printing', '15', '200', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(472, '2019-03-15', 'Scanning', '50', '1', 'Other Services', '50', '50', '', 'opeyemi'),
+(473, '2019-03-15', 'Photocopy', '10', '1', 'Other Services', '10', '10', '', 'opeyemi'),
+(474, '2019-03-15', 'Ledger', '20', '205', 'Graphics/Printing', '4100', '4100', '', 'opeyemi'),
+(475, '2019-03-15', 'A4 Printing', '20', '20', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(476, '2019-03-15', 'A3 Printing', '50', '12', 'Graphics/Printing', '600', '600', '', 'opeyemi'),
+(477, '2019-03-15', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(478, '2019-03-15', 'Letter Head', '13', '500', 'Graphics/Printing', '6500', '6500', '', 'opeyemi'),
+(479, '2019-03-15', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(480, '2019-03-15', 'A4 Printing', '15', '252', 'Graphics/Printing', '3800', '3800', '', 'opeyemi'),
+(481, '2019-03-15', 'A4 Printing', '20', '21', 'Graphics/Printing', '420', '420', '', 'opeyemi'),
+(482, '2019-03-15', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(483, '2019-03-15', 'Internet', '', '', 'Other Services', '200', '200', '', 'opeyemi'),
+(484, '2019-03-15', 'Scanning', '100', '1', 'Other Services', '100', '100', '', 'opeyemi'),
+(485, '2019-03-15', 'A4 Printing', '20', '20', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(486, '2019-03-15', 'A4 Printing', '15', '100', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(487, '2019-03-15', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(488, '2019-03-15', 'Typing & Printing', '150', '2', 'Other Services', '300', '300', '', 'opeyemi'),
+(489, '2019-03-15', 'Internet', '', '', 'Other Services', '300', '300', '', 'opeyemi'),
+(490, '2019-03-15', 'A4 Printing', '33', '24', 'Graphics/Printing', '800', '800', '', 'opeyemi'),
+(491, '2019-03-15', 'Envelope', '13', '100', 'Graphics/Printing', '1300', '1100', '200', 'opeyemi'),
+(492, '2019-03-15', 'Typing & Printing', '', '3', 'Other Services', '500', '500', '', 'opeyemi'),
+(493, '2019-03-18', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(494, '2019-03-18', 'A4 Printing', '15', '260', 'Graphics/Printing', '3900', '3900', '', 'opeyemi'),
+(495, '2019-03-18', 'A4 Printing', '20', '40', 'Graphics/Printing', '800', '800', '', 'opeyemi'),
+(496, '2019-03-18', 'Sticker', '10', '90', 'Graphics/Printing', '900', '900', '', 'opeyemi'),
+(497, '2019-03-18', 'Outstanding debt', '', '', 'Other Services', '', '300', '', 'opeyemi'),
+(498, '2019-03-18', 'A4 Printing', '15', '220', 'Graphics/Printing', '3300', '3300', '', 'opeyemi'),
+(499, '2019-03-18', 'A4 Printing', '20', '26', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(500, '2019-03-18', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(501, '2019-03-20', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(502, '2019-03-20', 'A4 Printing', '30', '26', 'Graphics/Printing', '800', '800', '', 'opeyemi'),
+(503, '2019-03-20', 'Letter Head', '500', '1', 'Other Services', '500', '500', '', 'opeyemi'),
+(504, '2019-03-20', 'Envelope', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(505, '2019-03-20', 'Scanning', '50', '1', 'Other Services', '50', '50', '', 'opeyemi'),
+(506, '2019-03-20', 'A4 Printing', '15', '105', 'Graphics/Printing', '1600', '1600', '', 'opeyemi'),
+(507, '2019-03-20', 'A4 Printing', '20', '100', 'Graphics/Printing', '2000', '2000', '', 'opeyemi'),
+(508, '2019-03-20', 'I.D Card', '500', '1', 'Other Services', '500', '500', '', 'opeyemi'),
+(509, '2019-03-20', 'Typing & Printing', '150', '1', 'Other Services', '150', '150', '', 'opeyemi'),
+(510, '2019-03-20', 'A4 Printing', '16', '500', 'Graphics/Printing', '8000', '8000', '', 'opeyemi'),
+(511, '2019-03-20', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(512, '2019-03-20', 'A4 Printing', '20', '50', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(513, '2019-03-20', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(514, '2019-03-20', 'A3 Printing', '70', '6', 'Graphics/Printing', '420', '420', '', 'opeyemi'),
+(515, '2019-03-28', 'A4 Printing', '50', '40', 'Graphics/Printing', '2000', '2000', '', 'opeyemi'),
+(516, '2019-03-28', 'A4 Printing', '50', '20', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(517, '2019-03-28', 'A4 Printing', '13', '210', 'Graphics/Printing', '2700', '2700', '', 'opeyemi'),
+(518, '2019-03-28', 'A4 Printing', '25', '20', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(519, '2019-03-28', 'Envelope', '15', '25', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(520, '2019-03-28', 'A3 Printing', '25', '140', 'Graphics/Printing', '3500', '3500', '', 'opeyemi'),
+(521, '2019-03-28', 'Design', '1500', '1', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(522, '2019-03-28', 'A4 Printing', '30', '12', 'Graphics/Printing', '350', '350', '', 'opeyemi'),
+(523, '2019-03-28', 'Envelope', '14', '50', 'Graphics/Printing', '700', '700', '', 'opeyemi'),
+(524, '2019-03-28', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(525, '2019-03-28', 'A3 Printing', '70', '10', 'Graphics/Printing', '700', '700', '', 'opeyemi'),
+(526, '2019-03-28', 'Photocopy', '10', '80', 'Graphics/Printing', '800', '800', '', 'opeyemi'),
+(527, '2019-03-28', 'Envelope', '15', '150', 'Graphics/Printing', '2250', '2250', '', 'opeyemi'),
+(528, '2019-03-28', 'A4 Printing', '20', '28', 'Graphics/Printing', '550', '550', '', 'opeyemi'),
+(529, '2019-03-28', 'A4 Printing', '15', '200', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(530, '2019-03-28', 'Editing', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(531, '2019-03-28', 'Typing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(532, '2019-03-28', 'Nodus montessori', '', '', 'Other Services', '000', '1000', '160', 'opeyemi'),
+(533, '2019-03-28', 'A4 Printing', '15', '400', 'Graphics/Printing', '6000', '6000', '', 'opeyemi'),
+(534, '2019-03-28', 'A4 Printing', '15', '205', 'Graphics/Printing', '3075', '0000', '3075', 'opeyemi'),
+(535, '2019-03-28', 'Envelope', '20', '5', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(536, '2019-03-28', 'outstanding debt', '', '', 'Other Services', '000', '150', '200', 'opeyemi'),
+(537, '2019-03-29', 'Nodus montessori', '', '', 'Graphics/Printing', '000', '160', '', 'opeyemi'),
+(538, '2019-03-29', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(539, '2019-03-29', 'outstanding debt', '', '', 'select', '000', '3150', '', 'opeyemi'),
+(540, '2019-03-29', 'A4 Printing', '20', '40', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(541, '2019-03-29', 'Photocopy', '20', '7', 'Graphics/Printing', '140', '140', '', 'opeyemi');
+INSERT INTO `records` (`id`, `date`, `nature_of_job`, `rate`, `copies`, `category`, `amount`, `total`, `balance`, `user`) VALUES
+(542, '2019-03-29', 'Typing & Printing', '150', '4', 'Other Services', '600', '600', '', 'opeyemi'),
+(543, '2019-03-29', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(544, '2019-03-29', 'Photocopy', '10', '60', 'Other Services', '600', '600', '', 'opeyemi'),
+(545, '2019-03-29', 'Photocopy', '10', '2', 'Other Services', '20', '20', '', 'opeyemi'),
+(546, '2019-03-29', 'Internet & Printing', '400', '1', 'Other Services', '400', '400', '', 'opeyemi'),
+(547, '2019-03-29', 'A3 Printing', '50', '10', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(548, '2019-03-29', 'A4 Printing', '15', '250', 'Graphics/Printing', '3750', '3750', '', 'opeyemi'),
+(549, '2019-03-29', 'A4 Printing', '41.6', '6', 'Graphics/Printing', '250', '250', '', 'opeyemi'),
+(550, '2019-03-29', 'Photocopy', '10', '1', 'Other Services', '10', '10', '', 'opeyemi'),
+(551, '2019-03-29', 'Internet & Printing', '225', '2', 'Other Services', '450', '450', '', 'opeyemi'),
+(552, '2019-03-29', 'A4 Printing', '30', '16', 'Graphics/Printing', '500', '000', '500', 'opeyemi'),
+(553, '2019-03-29', 'A4 Printing', '20', '155', 'Graphics/Printing', '3100', '3100', '', 'opeyemi'),
+(554, '2019-03-29', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(555, '2019-03-29', 'Outstanding debt', '', '', 'select', '500', '500', '', 'opeyemi'),
+(556, '2019-03-29', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(557, '2019-03-29', 'A4 Printing', '18', '100', 'Graphics/Printing', '1800', '1800', '', 'opeyemi'),
+(558, '2019-03-29', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(559, '2019-03-29', 'Resogade Web fees balance', '', '', 'Web Projects', '000', '50,000', '', 'opeyemi'),
+(560, '2019-03-29', 'Babatunde Sulayman Training Bal', '', '', 'Training', '000', '10000', '', 'opeyemi'),
+(561, '2019-03-29', 'Atilola Olanshile Training Advance', '', '', 'Training', '15000', '10000', '5000', 'opeyemi'),
+(562, '2019-04-01', 'A4 Printing', '15', '26.6', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(563, '2019-04-01', 'A4 Printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(564, '2019-04-01', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(565, '2019-04-01', 'Design', '1000', '1', 'Other Services', '1000', '1000', '', 'opeyemi'),
+(566, '2019-04-01', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(567, '2019-04-01', 'A4 Printing', '100', '10', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(568, '2019-04-01', 'Training', '', '', 'Training', '30000', '30000', '', 'opeyemi'),
+(569, '2019-04-01', 'A3 Printing', '28', '200', 'Graphics/Printing', '5600', '5600', '', 'opeyemi'),
+(570, '2019-04-01', 'A4 Printing', '15', '240', 'Graphics/Printing', '3600', '3600', '', 'opeyemi'),
+(571, '2019-04-01', 'Design', '500', '1', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(572, '2019-04-01', 'I.D Card', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(573, '2019-04-01', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(574, '2019-04-01', 'A3 Printing', '34', '50', 'Graphics/Printing', '1700', '1700', '', 'opeyemi'),
+(575, '2019-04-01', 'Design', '700', '1', 'Other Services', '700', '700', '', 'opeyemi'),
+(576, '2019-04-10', 'A4 Printing', '20', '15', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(578, '2019-04-10', 'A4 Printing', '20', '20', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(579, '2019-04-10', 'A4 Printing', '15', '200', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(580, '2019-04-10', 'A4 Printing', '25', '12', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(581, '2019-04-10', 'A4 Printing', '100', '4', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(583, '2019-04-10', 'A4 Printing', '25', '20', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(584, '2019-04-10', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(585, '2019-04-10', 'Photocopy', '10', '2', 'Other Services', '20', '20', '', 'opeyemi'),
+(586, '2019-04-10', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(587, '2019-04-10', 'Ledger', '30', '10', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(588, '2019-04-10', 'scanning & internet', '83', '6', 'Other Services', '500', '500', '', 'opeyemi'),
+(589, '2019-04-10', 'A4 Printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(590, '2019-04-10', 'A4 Printing', '25', '24', 'Graphics/Printing', '600', '600', '', 'opeyemi'),
+(591, '2019-04-10', 'A4 Printing', '20', '35', 'Graphics/Printing', '700', '700', '', 'opeyemi'),
+(592, '2019-04-10', 'A4 Printing', '22', '18', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(593, '2019-04-10', 'letterhead', '10', '1500', 'Graphics/Printing', '15000', '15000', '', 'opeyemi'),
+(594, '2019-04-10', 'A4 Printing', '15', '100', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(596, '2019-04-10', 'Internet & Printing', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(597, '2019-04-10', 'Passport', '', '4', 'Other Services', '200', '200', '', 'opeyemi'),
+(598, '2019-04-10', 'A4 Printing', '30', '18', 'Graphics/Printing', '540', '540', '', 'opeyemi'),
+(599, '2019-04-10', 'A4 Printing', '41.6', '6', 'Graphics/Printing', '250', '250', '', 'opeyemi'),
+(600, '2019-04-10', 'Internet & Printing', '300', '1', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(601, '2019-04-10', 'A4 Printing', '20', '15', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(602, '2019-04-10', 'lasisi taofeek', '', '', 'Training', '0000', '20000', '', 'opeyemi'),
+(603, '2019-04-10', 'Typing', '200', '1', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(604, '2019-04-10', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(605, '2019-04-10', 'Envelope', '18', '50', 'Graphics/Printing', '900', '900', '', 'opeyemi'),
+(606, '2019-04-10', 'Internet & Printing', '200', '1', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(607, '2019-04-10', 'Mr munirudeen Ismail', '', '', 'Training', '000', '20000', '', 'opeyemi'),
+(608, '2019-04-10', 'A4 Printing', ' 400', '15', 'Graphics/Printing', '6000', '6000', '', 'opeyemi'),
+(609, '2019-04-10', 'Design', '1200', '2', 'Other Services', '2400', '2400', '', 'opeyemi'),
+(610, '2019-04-10', 'A4 Printing', '40', '10', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(611, '2019-04-10', 'A4 Printing', '25', '26', 'Graphics/Printing', '700', '700', '', 'opeyemi'),
+(612, '2019-04-10', 'Outstanding debt', '', '', 'select', '000', '200', '', 'opeyemi'),
+(613, '2019-04-10', 'A4 Printing', '25', '12', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(614, '2019-04-10', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(616, '2019-04-10', 'A3 Printing', '70', '6', 'Graphics/Printing', '420', '420', '', 'opeyemi'),
+(617, '2019-04-10', 'Design', '1000', '1', 'Other Services', '1000', '1000', '', 'opeyemi'),
+(618, '2019-04-10', 'A3 Printing', '30', '106', 'Graphics/Printing', '3200', '3200', '', 'opeyemi'),
+(619, '2019-04-10', 'Photocopy', '30', '6', 'Other Services', '200', '200', '', 'opeyemi'),
+(620, '2019-04-10', 'Photocopy', '30', '3', 'Other Services', '100', '100', '', 'opeyemi'),
+(621, '2019-04-10', 'A4 Printing', '100', '4', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(622, '2019-04-10', 'A4 Printing', '15', '100', 'Graphics/Printing', '1500', '1200', '300', 'opeyemi'),
+(623, '2019-04-10', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(624, '2019-04-10', 'A4 Printing', '18', '218', 'Graphics/Printing', '3930', '3930', '', 'opeyemi'),
+(625, '2019-04-10', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(626, '2019-04-10', 'A4 Printing', '25', '20', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(627, '2019-04-10', 'A4 Printing', '20', '75', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(628, '2019-04-10', 'Typing', '150', '1', 'Other Services', '150', '150', '', 'opeyemi'),
+(629, '2019-04-10', 'A4 Printing', '150', '2', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(630, '2019-04-10', 'Typing & Printing', '200', '5', 'Other Services', '1000', '1000', '', 'opeyemi'),
+(631, '2019-04-10', 'Internet', '350', '2', 'Other Services', '350', '350', '', 'opeyemi'),
+(632, '2019-04-10', 'A5', '12', '100', 'Graphics/Printing', '1200', '1200', '', 'opeyemi'),
+(633, '2019-04-10', 'A3 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(634, '2019-04-13', 'A4 Printing', '50', '3', 'Graphics/Printing', '150', '150', '', 'opeyemi'),
+(635, '2019-04-13', 'Internet & Printing', '250', '1', 'Other Services', '250', '250', '', 'opeyemi'),
+(636, '2019-04-13', 'A4 Printing', '30', '18', 'Graphics/Printing', '540', '540', '', 'opeyemi'),
+(637, '2019-04-13', 'Envelope', '15', '50', 'Graphics/Printing', '750', '750', '', 'opeyemi'),
+(638, '2019-04-13', 'A4 Printing', '30', '10', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(639, '2019-04-13', 'A4 Printing', '15', '100', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(640, '2019-04-13', 'Arabic Typing', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(641, '2019-04-13', 'Photocopy', '10', '10', 'Other Services', '100', '100', '', 'opeyemi'),
+(642, '2019-04-13', 'A4 Printing', '15', '150', 'Graphics/Printing', '2000', '250', '', 'opeyemi'),
+(643, '2019-04-13', 'Design', '1000', '1', 'Other Services', '1000', '1000', '', 'opeyemi'),
+(644, '2019-04-13', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(645, '2019-04-13', 'A4 Printing', '20', '37', 'Graphics/Printing', '750', '750', '', 'opeyemi'),
+(646, '2019-04-13', 'A4 Printing', '15', '101', 'Graphics/Printing', '1520', '1520', '', 'opeyemi'),
+(647, '2019-04-13', 'I.D Card', '700', '1', 'Other Services', '700', '700', '', 'opeyemi'),
+(648, '2019-04-13', 'Photocopy', '15', '15', 'Other Services', '225', '225', '', 'opeyemi'),
+(649, '2019-04-13', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(650, '2019-04-13', 'A3 Printing', '30', '102', 'Graphics/Printing', '3060', '3060', '', 'opeyemi'),
+(651, '2019-04-13', 'Photocopy', '10', '2', 'Other Services', '20', '20', '', 'opeyemi'),
+(652, '2019-04-13', 'A3 Printing', '30', '120', 'Graphics/Printing', '3600', '3600', '', 'opeyemi'),
+(653, '2019-04-13', 'A4 Printing', '30', '30', 'Graphics/Printing', '900', '900', '', 'opeyemi'),
+(654, '2019-04-13', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(655, '2019-04-13', 'Envelope', '15', '25', 'Graphics/Printing', '380', '380', '', 'opeyemi'),
+(656, '2019-04-13', 'A4 Printing', '15', '100', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(657, '2019-04-13', 'Justpath Balance for Printing', '', '', 'Other Services', '0000000', '11500', '4000', 'opeyemi'),
+(658, '2019-04-13', 'A4 Printing', '15', '360', 'Graphics/Printing', '5400', '5400', '', 'opeyemi'),
+(659, '2019-04-13', 'Letter Head', '15', '50', 'Graphics/Printing', '750', '750', '', 'opeyemi'),
+(660, '2019-04-17', 'A4 Printing', '15', '270', 'Graphics/Printing', '4050', '4050', '', 'opeyemi'),
+(661, '2019-04-17', 'Internet & Printing', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(662, '2019-04-17', 'Outstanding debt', '', '', 'select', '00000', '500', '', 'opeyemi'),
+(663, '2019-04-17', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(664, '2019-04-17', 'Photocopy', '20', '1', 'Other Services', '20', '20', '', 'opeyemi'),
+(665, '2019-04-17', 'Photocopy', '15', '4', 'Other Services', '60', '60', '', 'opeyemi'),
+(666, '2019-04-17', 'Photocopy', '10', '1', 'Other Services', '10', '10', '', 'opeyemi'),
+(667, '2019-04-17', 'A4 Printing', '100', '3', 'Other Services', '300', '300', '', 'opeyemi'),
+(668, '2019-04-17', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '000', '200', 'opeyemi'),
+(669, '2019-04-18', 'Photocopy', '10', '25', 'Other Services', '250', '250', '', 'opeyemi'),
+(672, '2019-04-18', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(673, '2019-04-18', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(674, '2019-04-18', 'A4 Printing', '13', '330', 'Graphics/Printing', '4290', '4290', '', 'opeyemi'),
+(679, '2019-04-18', 'Envelope', '10', '100', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(680, '2019-04-18', 'A4 Printing', '15', '54', 'Graphics/Printing', '800', '700', '100', 'opeyemi'),
+(681, '2019-04-18', 'Design', '700', '1', 'Other Services', '700', '700', '', 'opeyemi'),
+(682, '2019-04-18', 'A3 Printing', '35', '20', 'Graphics/Printing', '700', '700', '', 'opeyemi'),
+(683, '2019-04-18', 'A4 Printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(684, '2019-04-18', 'A4 Printing', '15', '150', 'Graphics/Printing', '2250', '2250', '', 'opeyemi'),
+(685, '2019-04-18', 'A4 Printing', '83.3', '6', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(686, '2019-04-18', 'A4 Printing', '15', '220', 'Graphics/Printing', '3000', '3000', '300', 'opeyemi'),
+(687, '2019-04-18', 'joshua chigozie', '', '', 'Training', '0000000000', '10000', '', 'opeyemi'),
+(688, '2019-04-18', 'A3 Printing', '75', '2', 'Graphics/Printing', '150', '150', '', 'opeyemi'),
+(689, '2019-04-18', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(690, '2019-04-18', 'A4 Printing', '23.3', '60', 'Graphics/Printing', '1400', '1400', '', 'opeyemi'),
+(691, '2019-04-18', 'Typing & Printing', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(692, '2019-04-18', 'A4 Printing', '15', '55', 'Graphics/Printing', '830', '830', '', 'opeyemi'),
+(693, '2019-04-18', 'A4 Printing', '20', '105', 'Graphics/Printing', '2100', '2100', '', 'opeyemi'),
+(694, '2019-04-27', 'A4 Printing', '50', '3', 'Graphics/Printing', '150', '150', '', 'opeyemi'),
+(695, '2019-04-27', 'A4 Printing', '20', '276', 'Graphics/Printing', '5520', '5520', '', 'opeyemi'),
+(696, '2019-04-27', 'Photocopy', '10', '368', 'Graphics/Printing', '3680', '3680', '', 'opeyemi'),
+(697, '2019-04-27', 'A4 Printing', '20', '30', 'Graphics/Printing', '600', '600', '', 'opeyemi'),
+(698, '2019-04-27', 'Internet', '', '', 'Other Services', '100', '100', '', 'opeyemi'),
+(699, '2019-04-27', 'A4 Printing', '20', '50', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(700, '2019-04-27', 'A4 Printing', '20', '100', 'Graphics/Printing', '2200', '2200', '', 'opeyemi'),
+(701, '2019-04-27', 'A3 Printing', '50', '7', 'Graphics/Printing', '350', '350', '', 'opeyemi'),
+(702, '2019-04-27', 'Typing & Printing', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(703, '2019-04-27', 'Photocopy', '10', '10', 'Other Services', '100', '100', '', 'opeyemi'),
+(704, '2019-04-27', 'A4 Printing', '33', '9', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(705, '2019-04-27', 'A4 Printing', '20', '20', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(706, '2019-04-27', 'Passport', '', '4', 'Other Services', '200', '200', '', 'opeyemi'),
+(707, '2019-04-27', 'A4 Printing', '50', '5', 'Graphics/Printing', '250', '250', '', 'opeyemi'),
+(708, '2019-04-27', 'Design', '700', '1', 'Other Services', '700', '700', '', 'opeyemi'),
+(709, '2019-04-27', 'A4 Printing', '50', '6', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(710, '2019-04-27', 'Photocopy', '10', '10', 'Other Services', '100', '100', '', 'opeyemi'),
+(711, '2019-04-27', 'Photocopy', '10', '10', 'Other Services', '100', '100', '', 'opeyemi'),
+(712, '2019-04-27', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(713, '2019-04-27', 'Typing & Printing', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(714, '2019-04-27', 'Photocopy', '10', '5', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(715, '2019-04-27', 'A4 Printing', '17.4', '103', 'Graphics/Printing', '1800', '1800', '', 'opeyemi'),
+(716, '2019-04-30', 'A4 Printing', '25', '24', 'Graphics/Printing', '600', '600', '', 'opeyemi'),
+(717, '2019-04-30', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(718, '2019-04-30', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(719, '2019-04-30', 'Photocopy', '10', '20', 'Other Services', '200', '200', '', 'opeyemi'),
+(720, '2019-04-30', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(721, '2019-04-30', 'Photocopy', '10', '50', 'Other Services', '500', '500', '', 'opeyemi'),
+(722, '2019-04-30', 'A4 Printing', '15', '160', 'Graphics/Printing', '2400', '2400', '', 'opeyemi'),
+(723, '2019-04-30', 'Advance for I.D Card', '', '', 'Other Services', '1000', '500', '500', 'opeyemi'),
+(724, '2019-04-30', 'Letter Head', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(725, '2019-04-30', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(726, '2019-04-30', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(727, '2019-04-30', 'Photocopy', '10', '2', 'Graphics/Printing', '20', '20', '', 'opeyemi'),
+(728, '2019-04-30', 'A4 Printing', '20', '79', 'Graphics/Printing', '1580', '1580', '', 'opeyemi'),
+(729, '2019-04-30', 'A3 Printing', '50', '6', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(730, '2019-04-30', 'Internet', '', '', 'Other Services', '3000', '3000', '', 'opeyemi'),
+(731, '2019-04-30', 'A4 Printing', '18', '70', 'Graphics/Printing', '1250', '1250', '', 'opeyemi'),
+(732, '2019-04-30', 'Envelope', '13', '125', 'Graphics/Printing', '1625', '1625', '', 'opeyemi'),
+(733, '2019-04-30', 'A4 Printing', '15', '120', 'Graphics/Printing', '1800', '1800', '', 'opeyemi'),
+(734, '2019-04-30', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(735, '2019-04-30', 'Internet', '', '', 'Other Services', '100', '100', '', 'opeyemi'),
+(736, '2019-04-30', 'A4 Printing', '50', '13', 'Graphics/Printing', '650', '650', '', 'opeyemi'),
+(737, '2019-04-30', 'A4 Printing', '20', '10', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(738, '2019-04-30', 'A4 Printing', '15', '135', 'Graphics/Printing', '2020', '2020', '', 'opeyemi'),
+(739, '2019-04-30', 'A4 Printing', '20', '35', 'Graphics/Printing', '700', '700', '', 'opeyemi'),
+(740, '2019-04-30', 'Photocopy', '10', '6', 'Other Services', '60', '60', '', 'opeyemi'),
+(741, '2019-04-30', 'Design', '1000', '2', 'Other Services', '2000', '2000', '', 'opeyemi'),
+(742, '2019-04-30', 'A4 Printing', '50', '8', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(743, '2019-04-30', 'A4 Printing', '23', '50', 'Graphics/Printing', '1150', '1150', '', 'opeyemi'),
+(744, '2019-04-30', 'Design', '800', '1', 'Other Services', '800', '800', '', 'opeyemi'),
+(745, '2019-04-30', 'Typing', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(746, '2019-04-30', 'A4 Printing', '13', '500', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(747, '2019-04-30', 'Outstanding debt', '', '', 'select', '0000', '350', '', 'opeyemi'),
+(748, '2019-04-30', 'Typing & Printing', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(749, '2019-04-30', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(750, '2019-04-30', 'A4 Printing', '15', '100', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(751, '2019-04-30', 'A3 Printing', '30', '40', 'Graphics/Printing', '1200', '1200', '', 'opeyemi'),
+(752, '2019-04-30', 'A4 Printing', '20', '15', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(753, '2019-04-30', 'A4 Printing', '50', '6', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(754, '2019-04-30', 'A4 Printing', '50', '8', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(755, '2019-04-30', 'A4 Printing', '15', '276', 'Graphics/Printing', '4140', '4140', '', 'opeyemi'),
+(756, '2019-04-30', 'Design', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(757, '2019-04-30', 'Typing & Printing', '200', '2', 'Other Services', '400', '400', '', 'opeyemi'),
+(758, '2019-04-30', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(759, '2019-04-30', 'A4 Printing', '15', '125', 'Graphics/Printing', '1900', '1900', '', 'opeyemi'),
+(760, '2019-04-30', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(761, '2019-04-30', 'I.d card', '500', '1', 'Other Services', '500', '500', '', 'opeyemi'),
+(762, '2019-04-30', 'Design', '700', '2', 'Other Services', '1400', '1400', '', 'opeyemi'),
+(763, '2019-04-30', 'Ledger', '15', '200', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(764, '2019-04-30', 'A4 Printing', '15', '100', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(765, '2019-04-30', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(766, '2019-05-08', 'A4 Printing', '15', '400', 'Graphics/Printing', '6000', '6000', '', 'opeyemi'),
+(767, '2019-05-08', 'I.D Card', '300', '1', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(768, '2019-05-08', 'A4 Printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(769, '2019-05-08', 'A4 Printing', '15', '300', 'Graphics/Printing', '4500', '4500', '', 'opeyemi'),
+(770, '2019-05-08', 'A4 Printing', '15', '200', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(771, '2019-05-08', 'A4 Printing', '20', '15', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(772, '2019-05-08', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(773, '2019-05-08', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(774, '2019-05-08', 'A3 Printing', '30', '100', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(775, '2019-05-08', 'A4 Printing', '20', '15', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(776, '2019-05-08', 'Design', '1000', '100', 'Other Services', '1000', '1000', '', 'opeyemi'),
+(777, '2019-05-08', 'A3 Printing', '50', '5', 'Graphics/Printing', '250', '250', '', 'opeyemi'),
+(778, '2019-05-08', 'A4 Printing', '14', '625', 'Graphics/Printing', '8750', '8750', '', 'opeyemi'),
+(779, '2019-05-08', 'A4 Printing', '15', '500', 'Graphics/Printing', '7500', '7500', '', 'opeyemi'),
+(780, '2019-05-08', 'Typing & Printing', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(781, '2019-05-08', 'Photocopy', '30', '20', 'Other Services', '600', '600', '', 'opeyemi'),
+(782, '2019-05-08', 'A4 Printing', '15', '360', 'Graphics/Printing', '5400', '5400', '', 'opeyemi'),
+(783, '2019-05-08', 'A4 Printing', '50', '8', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(784, '2019-05-08', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(785, '2019-05-08', 'A4 Printing', '25', '44', 'Graphics/Printing', '1100', '1100', '', 'opeyemi'),
+(786, '2019-05-08', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(787, '2019-05-08', 'A4 Printing', '18', '25', 'Graphics/Printing', '450', '450', '', 'opeyemi'),
+(788, '2019-05-08', 'Photocopy', '10', '15', 'Other Services', '150', '150', '', 'opeyemi'),
+(789, '2019-05-08', 'Passport', '', '8', 'Other Services', '400', '400', '', 'opeyemi'),
+(790, '2019-05-08', 'Editing', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(791, '2019-05-08', 'A4 Printing', '15', '120', 'Graphics/Printing', '1800', '1800', '', 'opeyemi'),
+(792, '2019-05-08', 'balance for typing', '', '', 'Other Services', '0000', '2000', '', 'opeyemi'),
+(793, '2019-05-08', 'A4 Printing', '15', '200', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(794, '2019-05-08', 'Typing & Printing', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(795, '2019-05-08', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(796, '2019-05-08', 'Photocopy', '10', '10', 'Other Services', '100', '100', '', 'opeyemi'),
+(797, '2019-05-08', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(798, '2019-05-08', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(799, '2019-05-08', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(800, '2019-05-08', 'A4 Printing', '18', '55', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(801, '2019-05-08', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(802, '2019-05-08', 'Photocopy', '10', '2', 'Other Services', '20', '20', '', 'opeyemi'),
+(803, '2019-05-08', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(804, '2019-05-08', 'complementary card', '', '30', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(805, '2019-05-08', 'I.D Card', '500', '1', 'Other Services', '500', '500', '', 'opeyemi'),
+(806, '2019-05-08', 'Passport', '', '4', 'Other Services', '200', '200', '', 'opeyemi'),
+(807, '2019-05-08', 'Photocopy', '10', '2', 'Other Services', '20', '20', '', 'opeyemi'),
+(808, '2019-05-08', 'A4 Printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(809, '2019-05-08', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(810, '2019-05-08', 'A4 Printing', '15', '413', 'Graphics/Printing', '6200', '6200', '', 'opeyemi'),
+(811, '2019-05-08', 'Passport', '', '4', 'Other Services', '200', '200', '', 'opeyemi'),
+(812, '2019-05-08', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(813, '2019-05-18', 'A4 Printing', '20', '50', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(814, '2019-05-18', 'A3 Printing', '50', '5', 'Graphics/Printing', '250', '250', '', 'opeyemi'),
+(815, '2019-05-18', 'Typing & Printing', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(816, '2019-05-18', 'A4 Printing', '50', '3', 'Graphics/Printing', '150', '150', '', 'opeyemi'),
+(817, '2019-05-18', 'Editing', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(818, '2019-05-18', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(819, '2019-05-18', 'Design', '1000', '1', 'Other Services', '1000', '1000', '', 'opeyemi'),
+(820, '2019-05-18', 'A4 Printing', '20', '75', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(821, '2019-05-18', 'Outstanding debt', '', '', 'Other Services', '000', '1500', '1500', 'opeyemi'),
+(822, '2019-05-18', 'A4 Printing', '50', '10', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(823, '2019-05-18', 'A4 Printing', '28', '25', 'Graphics/Printing', '700', '700', '', 'opeyemi'),
+(824, '2019-05-18', 'I.D Card', '250', '5', 'Other Services', '1250', '1250', '', 'opeyemi'),
+(825, '2019-05-18', 'Outstanding debt', '', '', 'Other Services', '200', '200', '', 'opeyemi'),
+(826, '2019-05-18', 'A4 Printing', '20', '20', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(827, '2019-05-18', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(828, '2019-05-18', 'Envelope', '15', '100', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(829, '2019-05-18', 'A4 Printing', '70', '5', 'Graphics/Printing', '350', '350', '', 'opeyemi'),
+(830, '2019-05-18', 'A4 Printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(831, '2019-05-18', 'A4 Printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(832, '2019-05-18', 'A4 Printing', '50', '1', 'Graphics/Printing', '500', '50', '', 'opeyemi'),
+(833, '2019-05-18', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(834, '2019-05-18', 'Editing', '', '', 'select', '000', '300', '', 'opeyemi'),
+(835, '2019-05-18', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(836, '2019-05-18', 'Typing', '150', '1', 'Other Services', '150', '150', '', 'opeyemi'),
+(837, '2019-05-18', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(838, '2019-05-18', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(839, '2019-05-18', 'A4 Printing', '23', '60', 'Graphics/Printing', '1400', '1400', '', 'opeyemi'),
+(840, '2019-05-18', 'A4 Printing', '29', '24', 'Graphics/Printing', '700', '700', '', 'opeyemi'),
+(841, '2019-05-18', 'A4 Printing', '15', '100', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(842, '2019-05-18', 'Internet & Printing', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(843, '2019-05-18', 'A4 Printing', '15', '400', 'Graphics/Printing', '6000', '6000', '', 'opeyemi'),
+(844, '2019-05-18', 'Envelope', '10', '100', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(845, '2019-05-18', 'Ledger', '20', '100', 'Graphics/Printing', '2000', '2000', '', 'opeyemi'),
+(846, '2019-05-18', 'A4 Printing', '25', '100', 'Graphics/Printing', '2500', '2500', '', 'opeyemi'),
+(847, '2019-05-18', 'A4 Printing', '15', '50', 'Graphics/Printing', '750', '750', '', 'opeyemi'),
+(848, '2019-05-18', 'Design', '1200', '1', 'Other Services', '1200', '1200', '', 'opeyemi'),
+(849, '2019-05-18', 'Photocopy', '10', '5', 'Other Services', '50', '50', '', 'opeyemi'),
+(850, '2019-05-18', 'A4 Printing', '30', '2', 'Graphics/Printing', '60', '60', '', 'opeyemi'),
+(851, '2019-05-18', 'Photocopy', '20', '2', 'Other Services', '20', '20', '20', 'opeyemi'),
+(852, '2019-05-18', 'A4 Printing', '50', '3', 'Graphics/Printing', '150', '150', '', 'opeyemi'),
+(853, '2019-05-18', 'Envelope', '15', '115', 'Graphics/Printing', '1720', '1000', '720', 'opeyemi'),
+(854, '2019-05-18', 'Photocopy', '10', '1', 'Other Services', '10', '10', '', 'opeyemi'),
+(855, '2019-05-18', 'A4 Printing', '100', '400', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(856, '2019-05-18', 'A4 Printing', '30', '40', 'Graphics/Printing', '1200', '1200', '', 'opeyemi'),
+(857, '2019-05-18', 'Design', '800', '1', 'Other Services', '800', '500', '300', 'opeyemi'),
+(858, '2019-05-18', 'A3 Printing', '28', '450', 'Graphics/Printing', '12600', '12600', '', 'opeyemi'),
+(859, '2019-05-18', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(860, '2019-05-18', 'Design', '800', '1', 'Other Services', '800', '800', '', 'opeyemi'),
+(861, '2019-05-18', 'Outstanding debt', '', '', 'select', '000', '720', '', 'opeyemi'),
+(862, '2019-05-18', 'A4 Printing', '30', '11', 'Graphics/Printing', '330', '330', '', 'opeyemi'),
+(863, '2019-05-18', 'A3 Printing', '35', '48', 'Graphics/Printing', '1700', '1700', '', 'opeyemi'),
+(864, '2019-05-18', 'I.D Card', '300', '4', 'Other Services', '1200', '1200', '', 'opeyemi'),
+(865, '2019-05-18', 'Baalance for design', '', '', 'select', '000', '300', '', 'opeyemi'),
+(866, '2019-05-18', 'A4 Printing', '25', '20', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(867, '2019-05-23', 'Envelope', '15', '50', 'Graphics/Printing', '750', '750', '', 'opeyemi'),
+(868, '2019-05-23', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(869, '2019-05-23', 'Abisola letterhead', '', '', 'Other Services', '4000', '4000', '', 'opeyemi'),
+(870, '2019-05-23', 'A4 Printing', '20', '30', 'Graphics/Printing', '600', '600', '', 'opeyemi'),
+(871, '2019-05-23', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(872, '2019-05-23', 'Outstanding debt', '', '', 'select', '000', '540', '', 'opeyemi'),
+(873, '2019-05-23', 'Photocopy', '10', '25', 'Other Services', '250', '250', '', 'opeyemi'),
+(874, '2019-05-23', 'Design', '800', '1', 'Other Services', '800', '800', '', 'opeyemi'),
+(875, '2019-05-23', 'A4 Printing', '20', '48', 'Graphics/Printing', '960', '960', '', 'opeyemi'),
+(876, '2019-05-23', 'Photocopy', '10', '239', 'Other Services', '2390', '2390', '', 'opeyemi'),
+(877, '2019-05-23', 'A4 Printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(879, '2019-05-23', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(880, '2019-05-23', 'Photocopy', '10', '30', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(881, '2019-05-23', 'A4 Printing', '15', '200', 'Graphics/Printing', '3000', '3000', '', 'opeyemi'),
+(882, '2019-05-23', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(883, '2019-05-23', 'A4 Printing', '25', '20', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(884, '2019-05-23', 'Photocopy', '10', '40', 'Other Services', '400', '400', '', 'opeyemi'),
+(885, '2019-05-23', 'A4 Printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(886, '2019-05-23', 'A4 Printing', '20', '30', 'Graphics/Printing', '600', '460', '140', 'opeyemi'),
+(887, '2019-05-23', 'A4 Printing', '30', '25', 'Graphics/Printing', '750', '750', '', 'opeyemi'),
+(888, '2019-05-23', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(889, '2019-05-23', 'Typing & Printing', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(890, '2019-05-23', 'A4 Printing', '20', '50', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(891, '2019-05-23', 'A4 Printing', '50', '10', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(892, '2019-05-23', 'A4 Printing', '15', '116', 'Graphics/Printing', '1750', '1750', '', 'opeyemi'),
+(893, '2019-05-23', 'A3 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(894, '2019-05-23', 'A4 Printing', '50', '8', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(895, '2019-05-23', 'A4 Printing', '15', '100', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(896, '2019-05-23', 'A4 Printing', '', '7', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(897, '2019-05-23', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(898, '2019-05-23', 'Photocopy', '10', '15', 'Other Services', '150', '150', '', 'opeyemi'),
+(899, '2019-05-23', 'A3 Printing', '50', '5', 'Graphics/Printing', '250', '250', '', 'opeyemi'),
+(900, '2019-05-23', 'A4 Printing', '22', '22', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(901, '2019-05-23', 'Photocopy', '10', '35', 'Other Services', '350', '350', '', 'opeyemi'),
+(902, '2019-05-23', 'I.D Card', '1000', '1', 'Other Services', '1000', '1000', '', 'opeyemi'),
+(903, '2019-05-31', 'Internet ', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(904, '2019-05-31', 'Photocopy', '30', '11', 'Other Services', '500', '500', '', 'opeyemi'),
+(905, '2019-05-31', 'A4 Printing', '15', '100', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(906, '2019-05-31', 'A3 Printing', '50', '5', 'Graphics/Printing', '250', '250', '', 'opeyemi'),
+(907, '2019-05-31', 'Design', '1100', '1', 'Other Services', '1100', '1100', '', 'opeyemi'),
+(908, '2019-05-31', 'A4 Printing', '25', '18', 'Graphics/Printing', '450', '450', '', 'opeyemi'),
+(909, '2019-05-31', 'A4 Printing', '15', '100', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(910, '2019-05-31', 'A3 Printing', '30', '200', 'Graphics/Printing', '6000', '6000', '', 'opeyemi'),
+(914, '2019-05-31', 'I.D Card', '230', '12', 'Other Services', '2760', '3000', '240', 'opeyemi'),
+(915, '2019-05-31', 'A4 Printing', '20', '1000', 'Graphics/Printing', '2000', '2000', '', 'opeyemi'),
+(916, '2019-05-31', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(917, '2019-05-31', 'A4 Printing', '20', '20', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(918, '2019-05-31', 'A4 Printing', '25', '28', 'Graphics/Printing', '700', '700', '', 'opeyemi'),
+(919, '2019-05-31', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(920, '2019-05-31', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(921, '2019-05-31', 'A3 Printing', '40', '25', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(922, '2019-05-31', 'A4 Printing', '20', '30', 'Graphics/Printing', '600', '600', '', 'opeyemi'),
+(923, '2019-05-31', 'A4 Printing', '50', '3', 'Graphics/Printing', '150', '150', '', 'opeyemi'),
+(924, '2019-05-31', 'A4 Printing', '20', '40', 'Graphics/Printing', '800', '800', '', 'opeyemi'),
+(925, '2019-05-31', 'I.D Card', '300', '1', 'Other Services', '300', '300', '', 'opeyemi'),
+(926, '2019-05-31', 'Photocopy', '10', '11', 'Other Services', '110', '100', '10', 'opeyemi'),
+(927, '2019-05-31', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(928, '2019-05-31', 'A4 Printing', '69', '13', 'Graphics/Printing', '900', '900', '', 'opeyemi'),
+(929, '2019-05-31', 'A4 Printing', '25', '25', 'Graphics/Printing', '625', '625', '', 'opeyemi'),
+(930, '2019-05-31', 'Typing & Printing', '200', '2', 'Other Services', '400', '400', '', 'opeyemi'),
+(931, '2019-05-31', 'Photocopy', '10', '20', 'Other Services', '200', '200', '', 'opeyemi'),
+(932, '2019-05-31', 'A4 Printing', '30', '15', 'Graphics/Printing', '450', '450', '', 'opeyemi'),
+(933, '2019-05-31', 'Envelope', '20', '75', 'Other Services', '1500', '1500', '', 'opeyemi'),
+(934, '2019-05-31', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(935, '2019-05-31', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(936, '2019-05-31', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(937, '2019-05-31', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(938, '2019-05-31', 'A4 Printing', '44', '9', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
+(939, '2019-05-31', 'Editing', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(940, '2019-05-31', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(941, '2019-05-31', 'Outstanding debt', '', '', 'select', '000', '500', '', 'opeyemi'),
+(942, '2019-05-31', 'Design', '700', '1', 'Other Services', '700', '700', '', 'opeyemi'),
+(943, '2019-05-31', 'Envelope', '12.6', '75', 'Other Services', '950', '950', '', 'opeyemi'),
+(944, '2019-05-31', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(945, '2019-05-31', 'A4 Printing', '50', '9', 'Graphics/Printing', '450', '450', '', 'opeyemi'),
+(946, '2019-05-31', 'A4 Printing', '15', '400', 'Graphics/Printing', '6000', '6000', '', 'opeyemi'),
+(947, '2019-05-31', 'A4 Printing', '75', '4', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(948, '2019-05-31', 'Typing & Printing', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(949, '2019-05-31', 'A4 Printing', '50', '11', 'Graphics/Printing', '550', '550', '', 'opeyemi'),
+(950, '2019-05-31', 'Design', '1000', '1', 'Other Services', '1000', '1000', '', 'opeyemi'),
+(951, '2019-05-31', 'A4 Printing', '25', '60', 'Graphics/Printing', '1500', '1500', '', 'opeyemi'),
+(952, '2019-06-10', 'Typing & Printing', '200', '1', 'Other Services', '200', '200', '', 'opeyemi'),
+(953, '2019-06-12', 'Training fee part pament', '1', '1', 'Training', '120000', '50000', '70000', 'Boldlinks'),
+(954, '2019-06-12', 'Design', '500', '1', 'Other Services', '500', '500', '', 'opeyemi'),
+(955, '2019-06-12', 'Design', '600', '1', 'Other Services', '600', '600', '', 'opeyemi'),
+(957, '2019-06-12', 'A4 Printing', '20', '60', 'Graphics/Printing', '1200', '1200', '', 'opeyemi'),
+(958, '2019-06-12', 'I.D Card', '300', '1', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(959, '2019-06-12', 'A4 Printing', '40', '13', 'Graphics/Printing', '520', '520', '', 'opeyemi'),
+(960, '2019-06-12', 'A3 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(961, '2019-06-12', 'A4 Printing', '50', '1', 'Graphics/Printing', '500', '50', '', 'opeyemi'),
+(962, '2019-06-12', 'Photocopy', '10', '2', 'Other Services', '200', '20', '', 'opeyemi'),
+(963, '2019-06-12', 'Photocopy', '10', '20', 'Other Services', '200', '200', '', 'opeyemi'),
+(964, '2019-06-12', 'A4 Printing', '50', '3', 'Graphics/Printing', '150', '150', '', 'opeyemi'),
+(965, '2019-06-12', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(966, '2019-06-12', 'Photocopy', '10', '2', 'Other Services', '200', '20', '', 'opeyemi'),
+(967, '2019-06-12', 'I.D Card', '700', '10', 'Other Services', '700', '700', '', 'opeyemi'),
+(968, '2019-06-12', 'A4 Printing', '30', '20', 'Graphics/Printing', '600', '600', '', 'opeyemi'),
+(969, '2019-06-12', 'A4 Printing', '20', '50', 'Graphics/Printing', '1000', '1000', '', 'opeyemi'),
+(970, '2019-06-12', 'Typing & Printing', '150', '4', 'Other Services', '600', '600', '', 'opeyemi'),
+(971, '2019-06-12', 'balance for printing', '', '', 'select', '0000', '800', '', 'opeyemi'),
+(972, '2019-06-12', 'advance for printing', '', '', 'select', '0000', '1000', '', 'opeyemi'),
+(973, '2019-06-12', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(974, '2019-06-12', 'A4 Printing', '20', '25', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(975, '2019-06-12', 'A4 Printing', '50', '3', 'Graphics/Printing', '150', '150', '', 'opeyemi'),
+(976, '2019-06-12', 'A4 Printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
+(977, '2019-06-12', 'A4 Printing', '20', '37', 'Graphics/Printing', '750', '750', '', 'opeyemi'),
+(978, '2019-06-12', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(979, '2019-06-12', 'Photocopy', '10', '2', 'Other Services', '200', '20', '', 'opeyemi'),
+(980, '2019-06-12', 'Design', '500', '1', 'Other Services', '500', '500', '', 'opeyemi'),
+(981, '2019-06-12', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(982, '2019-06-12', 'A4 Printing', '15', '150', 'Graphics/Printing', '2250', '2250', '', 'opeyemi'),
+(983, '2019-06-12', 'A3 Printing', '50', '10', 'Graphics/Printing', '500', '500', '', 'opeyemi'),
+(984, '2019-06-12', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(985, '2019-06-12', 'A4 Printing', '50', '3', 'Graphics/Printing', '150', '150', '', 'opeyemi'),
+(986, '2019-06-12', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(987, '2019-06-12', 'A4 Printing', '25', '70', 'Graphics/Printing', '1750', '1750', '', 'opeyemi'),
+(988, '2019-06-12', 'Internet', '', '', 'Other Services', '200', '200', '', 'opeyemi'),
+(989, '2019-06-12', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(990, '2019-06-12', 'A4 Printing', '20', '240', 'Graphics/Printing', '4800', '4800', '', 'opeyemi'),
+(991, '2019-06-12', 'CD Burning', '', '', 'Other Services', '300', '300', '', 'opeyemi'),
+(992, '2019-06-12', 'A4 Printing', '50', '6', 'Graphics/Printing', '300', '300', '', 'opeyemi'),
+(993, '2019-06-12', 'Internet & Printing', '', '', 'Other Services', '300', '300', '', 'opeyemi'),
+(994, '2019-06-12', 'Outstanding debt', '', '', 'select', '000', '2000', '100', 'opeyemi'),
+(995, '2019-06-12', 'A4 Printing', '50', '3', 'Graphics/Printing', '150', '150', '', 'opeyemi'),
+(996, '2019-06-12', 'Photocopy', '10', '10', 'Other Services', '100', '100', '', 'opeyemi'),
+(997, '2019-06-12', 'A4 Printing', '50', '7', 'Graphics/Printing', '350', '350', '', 'opeyemi'),
+(998, '2019-06-12', 'Design', '500', '1', 'Other Services', '500', '500', '', 'opeyemi'),
+(999, '2019-06-12', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
+(1000, '2019-06-12', 'A4 Printing', '15', '50', 'Graphics/Printing', '750', '750', '', 'opeyemi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sales_comment_table`
+--
+
+CREATE TABLE `sales_comment_table` (
+  `id` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `user` varchar(200) NOT NULL,
+  `comment` varchar(10000) NOT NULL,
+  `salesid` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sales_comment_table`
+--
+
+INSERT INTO `sales_comment_table` (`id`, `date`, `user`, `comment`, `salesid`) VALUES
+(1, '2019-01-12 01:00:00', '', 'Why paid is 000 ?', 71);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `todos`
+--
+
+CREATE TABLE `todos` (
+  `id` int(20) NOT NULL,
+  `date` date NOT NULL,
+  `todo` varchar(10000) NOT NULL,
+  `task` varchar(50) NOT NULL,
+  `completed_at` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `todos`
+--
+
+INSERT INTO `todos` (`id`, `date`, `todo`, `task`, `completed_at`) VALUES
+(4, '2019-01-08', 'Uploading of CAC certificate', 'Incomplete', NULL),
+(22, '2019-01-18', 'Digital Marketing of Website', 'Incomplete', NULL),
+(23, '2019-01-18', 'Updates on Naijaschoolgist', 'Incomplete', NULL),
+(40, '2019-01-30', 'Calls', 'Incomplete', NULL),
+(46, '2019-02-11', 'Quotation & Receipts of buyersplaceng.com', 'Incomplete', NULL),
+(50, '2019-02-11', 'Reviewing Ogunde\'s Book', 'Incomplete', NULL),
+(52, '2019-03-01', 'Sifaaun Salam call and ammendment', 'Completed', '2019-05-13'),
+(53, '2019-03-01', 'cold wear', 'Completed', '2019-05-13'),
+(54, '2019-03-01', 'birthday sticker-lolade', 'Completed', '2019-05-13'),
+(55, '2019-03-01', 'sublime picture', 'Completed', '2019-05-13');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `todos_comment_table`
+--
+
+CREATE TABLE `todos_comment_table` (
+  `id` int(20) NOT NULL,
+  `date` datetime NOT NULL,
+  `user` varchar(200) NOT NULL,
+  `comment` varchar(10000) NOT NULL,
+  `salesid` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `customers`
+--
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `customers_comment_table`
+--
+ALTER TABLE `customers_comment_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `expenses`
+--
+ALTER TABLE `expenses`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `expenses_comment_table`
+--
+ALTER TABLE `expenses_comment_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `records`
+--
+ALTER TABLE `records`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sales_comment_table`
+--
+ALTER TABLE `sales_comment_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `todos`
+--
+ALTER TABLE `todos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `todos_comment_table`
+--
+ALTER TABLE `todos_comment_table`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `customers`
+--
+ALTER TABLE `customers`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+
+--
+-- AUTO_INCREMENT for table `customers_comment_table`
+--
+ALTER TABLE `customers_comment_table`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `expenses`
+--
+ALTER TABLE `expenses`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+
+--
+-- AUTO_INCREMENT for table `expenses_comment_table`
+--
+ALTER TABLE `expenses_comment_table`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `records`
+--
+ALTER TABLE `records`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+
+--
+-- AUTO_INCREMENT for table `sales_comment_table`
+--
+ALTER TABLE `sales_comment_table`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `todos`
+--
+ALTER TABLE `todos`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
+-- AUTO_INCREMENT for table `todos_comment_table`
+--
+ALTER TABLE `todos_comment_table`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

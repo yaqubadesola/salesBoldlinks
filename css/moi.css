@@ -1,0 +1,48 @@
+.navo {
+    background-color: #ccc;
+    height: auto;
+    }
+.nako {
+    background-color: #ccc;
+    height: auto;
+    float: right;
+    }
+    
+.section {
+    margin-top: 10px;
+
+}
+.ab {
+    background-color:#0e1a35;
+    color:white;
+   /*padding:5px;*/
+    height: 120px;
+    text-align: center;
+}
+
+    #nalo {
+        float: right;
+        margin: 5px;
+        list-style-type: none;
+       	background-color: #f2f2f2;
+    	border-bottom: 1px solid #ccc; 
+    	border-top: 1px solid #ccc; 
+    }
+    
+    #nalo li {
+        
+        list-style-type: none;
+        float: right;
+        margin: 5px;
+    }
+    
+    #nalo li a {
+		padding: 8px 15px;
+		text-decoration: none;
+		font-weight: bold;
+		color: #069;
+		border-right: 1px solid #ccc; }
+        
+   #nalo li a:hover {
+		color: #c00;
+		background-color: #fff; }

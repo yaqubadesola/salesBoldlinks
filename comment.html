@@ -1,0 +1,93 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<script src="js/each_comment.js"></script>
+<script>
+
+function calling() {
+    
+    
+       URL="?comment="+document.forms["commentor"]["comment"].value;
+        
+
+    if (window.XMLHttpRequest) {
+        
+        xmlhttp=new XMLHttpRequest();
+        
+        }   else {
+            
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            
+            }
+            
+    xmlhttp.onreadystatechange=function() {
+   
+        
+        if (xmlhttp.readyState==4 && xmlhttp.status==200){	
+    	   document.getElementById("read").innerHTML=xmlhttp.responseText;
+        }
+    }
+    
+    
+    xmlhttp.open("POST","http://sales.boldlinks.com.ng/load.php"+URL,true);
+    xmlhttp.send();
+
+}
+
+</script>
+
+    <style>
+    textarea{
+    width: 40%;
+    height: 400px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+    
+    input[type=submit] {
+    width: 10%;
+    background-color: blueviolet;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+    
+    #read {
+        float: right;
+        padding: 50px;
+        margin-top: -550px;
+        width: 45%;
+    }
+    
+    #area {
+        padding: 30px;
+    }
+    </style>
+	<title>COMMENTS</title>
+    
+
+</head>
+
+<body onload="calling()">
+<div id="area">
+<form name="commentor" onsubmit="commenting(); return false;">
+<label>Write Your Comment</label><br />
+<textarea name="comment" id="comment"></textarea><br />
+<input type="submit" name="comm" id="comm" value="COMMENT"/>
+</form>
+</div>
+
+<div id="read"></div>
+
+
+</body>
+</html>

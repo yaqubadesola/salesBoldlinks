@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html" />
+	<meta name="author" content="lolkittens" />
+    
+        <link href="css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+
+	<title>Untitled 1</title>
+     <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/script.js"></script>
+<script>
+/*$(document).ready(function(){
+    $("#btn1").click(function(){
+        $("#test1").text(function(i, origText){
+            return "Old text: " + origText + " New text: Hello world! (index: " + i + ")"; 
+        });
+    });
+
+    $("#btn2").click(function(){
+        $("#test2").html(function(i, origText){
+            return "Old html: " + origText + " New html: Hello <b>world!</b> (index: " + i + ")"; 
+        });
+    });
+});*/
+
+$(document).ready(function() {
+ $("#test2").click(function(){
+        $("#test2").html("<i>Completed</i>");
+    });
+})
+
+</script>
+</head>
+
+
+<body>
+<p id="test2">My work</p>
+
+<!--<p id="test1">This is a <b>bold</b> paragraph.</p>
+<p id="test2">This is another <b>bold</b> paragraph.</p>
+
+<button id="btn1">Show Old/New Text</button>
+<button id="btn2">Show Old/New HTML</button>-->
+</body>
+</html>
