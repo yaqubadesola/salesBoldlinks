@@ -1,6 +1,7 @@
 <?php  session_start(); 
 
 include_once('configg.php');
+include_once('records.php');
 
 
 //Start our session.
@@ -174,7 +175,22 @@ $result = mysqli_query($connect,"SELECT * FROM `todos` WHERE task = 'Incomplete'
                 <div id="form">
                     <th colspan="1"> 
                         <div id="date_created" class="form-group">
-                        <b><span style="color: red; padding: 5px; margin: 7px;">Filter by date created</span></b><input type="checkbox" onclick="myFunction()" id="show"/>
+                        <b><span style="color: red; padding: 5px; margin: 7px;">Filter by date created</span></b>
+                            <?php
+
+
+                            if(isset($_GET["date_from_created"]) && $_GET["date_from_created"]!=""){
+
+                            ?>
+                            <input type="checkbox" onclick="myFunction()" id="show" checked="checked"/>
+                                <?php
+                            }else{
+
+                            ?>
+                            <input type="checkbox" onclick="myFunction()" id="show"/>
+                                <?php
+                            }
+                            ?>
                             <div id="hide" onload="hidden">
                                 <label>From</label>
                                 <input type="date" name="date_from_created" class="form-control" value="<?php // echo $date_from; ?>"/>
@@ -185,19 +201,49 @@ $result = mysqli_query($connect,"SELECT * FROM `todos` WHERE task = 'Incomplete'
                     </th>
                     <th colspan="1"> 
                         <div id="task_option" class="form-group">
-                        <b><span style="color: red; padding: 5px; margin: 7px;">Filter by Task Option</b></span><input type="checkbox" onclick="myFunctionc()" id="watch"/>
+                        <b><span style="color: red; padding: 5px; margin: 7px;">Filter by Task Option</b></span>
+                            <?php
+
+
+                            if(isset($_GET["tasky"]) && $_GET["tasky"]!=""){
+
+                            ?>
+                            <input type="checkbox" onclick="myFunctionc()" id="watch" checked="checked"/>
+                                <?php
+                            }else{
+
+                            ?>
+                            <input type="checkbox" onclick="myFunctionc()" id="watch"/>
+                                <?php
+                            }
+                            ?>
                             <div id="pretend" class="form-group">
                                 <select name="tasky" class="form-control">
-                                <option value="select" ><?php //echo $product_cat; ?></option>
-                                    <option value="select" >Completed</option>
-                                    <option value="select" >Inomplete</option>
+                                <option value="" ><?php //echo $product_cat; ?></option>
+                                    <option value="Completed" >Completed</option>
+                                    <option value="Incomplete" >Incomplete</option>
                                 </select>
                             </div>
                         </div>
                     </th>
                     <th colspan="1"> 
                         <div id="date_completed" class="form-group">
-                        <b><span style="color: red; padding: 5px; margin: 7px;">Filter by date created</span></b><input type="checkbox" onclick="myFunctionb()" id="see"/>
+                        <b><span style="color: red; padding: 5px; margin: 7px;">Filter by date completed</span></b>
+                            <?php
+
+
+                            if(isset($_GET["date_from_completed"]) && $_GET["date_from_completed"]!=""){
+
+                            ?>
+                            <input type="checkbox" onclick="myFunctionb()" id="see" checked="checked"/>
+                                <?php
+                            }else{
+
+                            ?>
+                            <input type="checkbox" onclick="myFunctionb()" id="see"/>
+                                <?php
+                            }
+                            ?>
                             <div id="blind" onload="hidden">
                                 <label>From</label>
                                 <input type="date" name="date_from_completed" class="form-control" value="<?php // echo $date_from; ?>"/>
@@ -212,9 +258,341 @@ $result = mysqli_query($connect,"SELECT * FROM `todos` WHERE task = 'Incomplete'
         </tr>
     </thead>
 </table>
+     <?php
+     /*
+       $amount_charged = 0.0;
+       $amount_paid = 0.0;
+       $to_balance = 0.0;
+
+     // if(isset($_SESSION['user'])) {
+
+      //
+        //while($row = mysqli_fetch_assoc($result))
+        //if (is_array($result)) array_pop($result);
+
+        foreach($result as $row)
+        {
+           //print_r($row);die();
+
+          // $amount_charged += $row['amount'];
+           $amount_paid += $row['total'];
+           $to_balance += $row['balance'];
+
+        }
+
+       */
+
+     if (isset($_GET['search'])) {  ?>
 
 
 
+         <table class="table table-striped table-bordered" id="todo_table">
+
+
+             <thead>
+
+             <tr>
+                 <th>Date</th>
+                 <th>Todo</th>
+                 <th>Task</th>
+                 <th>Completed at</th>
+                 <th>Actions</th>
+             </tr>
+
+             </thead>
+
+             <tbody>
+
+             <?php
+             // echo 'cool'; die;
+             //
+             $recorded = new records();
+             $new_recs = $recorded->get_todos($_GET);//echo "jskvsjn";
+
+             $page_no = $recorded->get_page_no();
+
+             $total_pages = $recorded->get_total_pages();
+
+
+
+
+             // echo $page_no;
+             // echo "<br>";
+             //echo $total_pages;
+             //echo '<pre>';
+             //echo "hey";
+             //print_r($_GET);
+             //echo '</pre>';
+
+             //$result = mysqli_query($connect,"SELECT * FROM `records` ORDER BY id DESC");
+             // echo $new_recs; die;
+
+
+             if(is_array($new_recs)){
+                 //
+                 //echo"am here <br>"; die;
+                 $result = $new_recs; //$new_recs;
+                 $end_arr = end($result); //print_r($result);//die("EDFH");
+
+                 if( $end_arr != "") {
+
+                     //$result =     ;
+                     //print_r($result);die("EDFH");
+                     $product     = isset($end_arr["tasky"]) &&     $end_arr["tasky"] != "" ?        $end_arr["tasky"] :"";
+                     $date_from   = isset($end_arr["date_from_created"]) &&    $end_arr["date_from_created"] != "" ?      $end_arr["date_from_created"] :"";
+                     $date_to     = isset($end_arr["date_to_created"]) &&      $end_arr["date_to_created"] != "" ?         $end_arr["date_to_created"] :"";
+                     $product_cat = isset($end_arr["product_cat"]) &&  $end_arr["product_cat"] != "" ?     $end_arr["product_cat"] :"";
+                     array_pop($result);
+                 }
+             }
+
+
+             /* $total_records = count($new_recs) -1;
+
+                  //echo $reco; die;
+
+
+       if (isset($_GET['page_no']) && $_GET['page_no']!="") {
+          $page_no = $_GET['page_no'];
+
+
+          } else {
+              $page_no = 1;
+              }
+
+             // echo $page_no; die;
+
+          $total_records_per_page = 7;
+          $offset = ($page_no-1) * $total_records_per_page;
+          //echo $offset; die;
+          $previous_page = $page_no - 1;
+          $next_page = $page_no + 1;
+          $adjacents = "2";
+
+          $total_no_of_pages = ceil($total_records / $total_records_per_page);
+          $second_last = $total_no_of_pages - 1; // total page minus 1   */
+
+             $page_total = 0;
+
+             // function currencyToNum($str){
+             //  return  intval(preg_replace("/[^\d\.]/","", $str));
+             //};
+             //echo "<pre>";
+             //print_r($new_recs);
+             //echo "</pre>";
+
+             foreach($new_recs as $rows) {
+
+
+
+                 // echo $page_total; die();
+                 if (isset($rows['id'])) {
+
+                     ?>
+
+
+                     <tr>
+                         <td><?php echo $rows['date'] ?></td>
+                         <td><?php echo $rows['todo'] ?></td>
+                         <td><?php echo $rows['task'] ?></td>
+                         <td><?php echo $rows['completed_at'] ?></td>
+                         <td><a onclick="window.open('todo_comment.php?id=<?=$rows['id']?>','', 'width=700px, height=300px')" class="btn btn-primary btn-sm text-centre">Comment</a>
+                             <input type="button" name="delete" value="X" id="<?php echo $rows["id"]; ?>" class="btn btn-danger btn-sm delete_data" /></td>
+                     </tr>
+                 <?php }
+             }
+
+             mysqli_close($connect);
+             ?>
+
+
+             </tbody>
+
+         </table>
+
+
+         <?php
+         //echo $page_no;
+         // echo "<br>";
+         // echo  "hey";
+         //           echo $total_pages;
+         // echo "<br>";
+
+         $h = "todo.php?date_from_created=&date_to_created=&tasky=&date_from_completed=&date_to_completed=&search=SEARCH";
+
+         // $urll = "";
+
+         $url = "todo.php?date_from_created=".$_GET['date_from_created']."&date_to_created=".$_GET['date_to_created']."&tasky=".$_GET['tasky']."&date_from_completed=".$_GET['date_from_completed']."&date_to_completed=".$_GET['date_to_completed']."&search=".$_GET['search'];
+
+         $second_last = $total_pages - 1;
+         $urll = $url;
+
+         // echo $url . '<br>';
+         //echo basename($_SERVER['REQUEST_URI']);
+         //  echo $urll;
+         ?>
+
+
+
+         <ul class="pagination">
+             <li><a href="<?php echo $urll."&page_no=" . 1;?>">First</a></li>
+             <li class="<?php if($page_no <= 1){ echo 'disabled'; } ?>">
+                 <a href="<?php if($page_no <= 1){ echo '#'; } else { echo $urll."&page_no=".($page_no - 1); } ?>">Prev</a>
+             </li>
+             <li class="<?php if($page_no >= $total_pages){ echo 'disabled'; } ?>">
+                 <a href="<?php if($page_no >= $total_pages){ echo '#'; } else { echo $urll."&page_no=".($page_no + 1);} ?>">Next</a>
+             </li>
+             <li><a href="<?php echo $urll . '&page_no='. $total_pages; ?>">Last</a></li>
+         </ul>
+
+         <div style='padding: 10px 20px 0px; border-top: dotted 1px #CCC;'>
+             <strong><span style="color: red;">Page <?php echo $page_no." of ".$total_pages; ?></span></strong>
+         </div>
+
+         <ul class="pagination">
+             <li><a href="<?php echo $urll."&page_no=" . 1;?>">First</a></li>
+             <li class="<?php if($page_no <= 1){ echo 'disabled'; } ?>">
+                 <a href="<?php if($page_no <= 1){ echo '#'; } else { echo $urll."&page_no=".($page_no - 1); } ?>">Prev</a>
+             </li>
+             <?php
+             if ($total_pages <= 10){
+                 for ($counter = 1; $counter <= $total_pages; $counter++){
+                     if ($counter == $page_no) {
+                         echo "<li class='active'><a>$counter</a></li>";
+                     }else{
+                         echo "<li><a href=" . $urll . "&page_no=" . $counter . ">$counter</a></li>";
+                     }
+                 }
+             }
+             elseif($total_pages > 10){
+
+                 if($page_no <= 4) {
+                     for ($counter = 1; $counter < 8; $counter++){
+                         if ($counter == $page_no) {
+                             echo "<li class='active'><a>$counter</a></li>";
+                         }else{
+                             echo "<li><a href=" . $urll . "&page_no=" . $counter . ">$counter</a></li>";
+                         }
+                     }
+                     echo "<li><a>...</a></li>";
+                     echo "<li><a href=" . $urll . "&page_no=" . $second_last . ">$second_last</a></li>";
+                     echo "<li><a href=" . $urll . "&page_no=" . $total_pages . ">$total_pages</a></li>";
+                 }
+
+                 elseif($page_no > 4 && $page_no < $total_pages - 4) {
+                     $adjacents = 2;
+                     echo "<li><a href=" . $urll . "&page_no=" . 1 . ">1</a></li>";
+                     echo "<li><a href=" . $urll . "&page_no=" . 2 . ">2</a></li>";
+                     echo "<li><a>...</a></li>";
+                     for ($counter = $page_no - $adjacents; $counter <= $page_no + $adjacents; $counter++) {
+                         if ($counter == $page_no) {
+                             echo "<li class='active'><a>$counter</a></li>";
+                         }else{
+                             echo "<li><a href=" . $urll . "&page_no=" . $counter . ">$counter</a></li>";
+                         }
+                     }
+                     echo "<li><a>...</a></li>";
+                     echo "<li><a href=" . $urll . "&page_no=" . $second_last . ">$second_last</a></li>";
+                     echo "<li><a href='?page_no=$total_pages'>$total_pages</a></li>";
+                 }
+
+                 else {
+                     echo "<li><a href=" . $urll . "&page_no=" . 1 . ">1</a></li>";
+                     echo "<li><a href=" . $urll . "&page_no=" . 2 . ">2</a></li>";
+                     echo "<li><a>...</a></li>";
+
+                     for ($counter = $total_pages - 6; $counter <= $total_pages; $counter++) {
+                         if ($counter == $page_no) {
+                             echo "<li class='active'><a>$counter</a></li>";
+                         }else{
+                             echo "<li><a href=" . $urll . "&page_no=" . $counter . ">$counter</a></li>";
+                         }
+                     }
+                 }
+             }
+             ?>
+
+         </ul>
+
+         <!--<ul class="pagination">
+    <li <?php// if($page_no <= 1){ echo "class='disabled'"; } ?>>
+	<a <?php // if($page_no > 1){ echo "href='?page_no=$previous_page'"; } ?>>Previous</a>
+	</li>-->
+
+         <?php
+
+         /*	if ($total_no_of_pages <= 10){
+             for ($counter = 1; $counter <= $total_no_of_pages; $counter++){
+                 if ($counter == $page_no) {
+                echo "<li class='active'><a>$counter</a></li>";
+                     }else{
+                echo "<li><a href='?page_no=$counter'>$counter</a></li>";
+                     }
+             }
+         }
+         elseif($total_no_of_pages > 10){
+
+         if($page_no <= 4) {
+          for ($counter = 1; $counter < 8; $counter++){
+                 if ($counter == $page_no) {
+                echo "<li class='active'><a>$counter</a></li>";
+                     }else{
+                echo "<li><a href='?page_no=$counter'>$counter</a></li>";
+                     }
+             }
+             echo "<li><a>...</a></li>";
+             echo "<li><a href='?page_no=$second_last'>$second_last</a></li>";
+             echo "<li><a href='?page_no=$total_no_of_pages'>$total_no_of_pages</a></li>";
+             }
+
+          elseif($page_no > 4 && $page_no < $total_no_of_pages - 4) {
+             echo "<li><a href='?page_no=1'>1</a></li>";
+             echo "<li><a href='?page_no=2'>2</a></li>";
+             echo "<li><a>...</a></li>";
+             for ($counter = $page_no - $adjacents; $counter <= $page_no + $adjacents; $counter++) {
+                if ($counter == $page_no) {
+                echo "<li class='active'><a>$counter</a></li>";
+                     }else{
+                echo "<li><a href='?page_no=$counter'>$counter</a></li>";
+                     }
+            }
+            echo "<li><a>...</a></li>";
+            echo "<li><a href='?page_no=$second_last'>$second_last</a></li>";
+            echo "<li><a href='?page_no=$total_no_of_pages'>$total_no_of_pages</a></li>";
+                 }
+
+             else {
+             echo "<li><a href='?page_no=1'>1</a></li>";
+             echo "<li><a href='?page_no=2'>2</a></li>";
+             echo "<li><a>...</a></li>";
+
+             for ($counter = $total_no_of_pages - 6; $counter <= $total_no_of_pages; $counter++) {
+               if ($counter == $page_no) {
+                echo "<li class='active'><a>$counter</a></li>";
+                     }else{
+                echo "<li><a href='?page_no=$counter'>$counter</a></li>";
+                     }
+                     }
+                 }
+         } */
+
+         ?>
+
+         <!-- <li <?php // if($page_no >= $total_no_of_pages){ echo "class='disabled'"; } ?>>
+	<a <?php // if($page_no < $total_no_of_pages) { echo "href='?page_no=$next_page'"; } ?>>Next</a>
+	</li> -->
+
+         <?php /* if($page_no < $total_no_of_pages){
+		echo "<li><a href='?page_no=$total_no_of_pages'>Last &rsaquo;&rsaquo;</a></li>";
+		} */
+
+
+         ?>
+
+         <!--  </ul> -->
+
+
+     <?php   } else { ?>
     <table class="table table-striped table-bordered " id="todo_table">
            
   
@@ -371,7 +749,11 @@ if (isset($_GET['page_no']) && $_GET['page_no']!="") {
 </div>
 
 
+<?php
+}
 
+
+?>
  
 <div id="todo_modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
