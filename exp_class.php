@@ -7,7 +7,8 @@ class expenses extends configure {
     protected $qty;
     protected $price;
     protected $all;
-    
+    public $total_pages;
+    public $page_no;
     
     
     function set_expenses($date, $item, $quantity, $cost){
@@ -76,7 +77,7 @@ class expenses extends configure {
     
      function get_records($recs_arr){ 
         
-        //print_r($recs_arr);//die();
+       // print_r($recs_arr);//die();
         //$date, $nature_of_job, $rate, $copies, $amount, $total, $balance
         $this->details['date_from']   = isset($recs_arr['date_from'])             ? $recs_arr['date_from']    : "";
         $this->details['date_to']     = isset($recs_arr['date_to'])               ? $recs_arr['date_to']      : "";
@@ -119,16 +120,39 @@ class expenses extends configure {
         $cost_filter = "";
         if($this->details['cost']!= "" ){
         //
-           $item_filter = " AND  cost LIKE '%{$this->details['cost']}%' ";
+           $item_filter = " AND  cost = {$this->details['cost']} ";
             $Seach_varrs["cost"] =  $this->details['cost'];
         }
         
-        $SELECTDB = "SELECT * FROM expenses WHERE (1=1) $date_from_filter $date_filter_to 
-                     $item_filter $cost_filter ORDER BY id DESC";
+
         //$recs_qry = "SELECT * FROM records ORDER BY id DESC";
       //echo "qry = $SELECTDB";// die("stop jo");
         $recs_result = array();
+         //echo $SELECTDB;
+
+
+
+         $no_of_records_per_page = 10;
+
+         if (isset($_GET['page_no'])) {
+
+             $this->page_no = $_GET['page_no'];
+         } else {
+             $this->page_no = 1;
+         }
+
+         $offset = ($this->page_no - 1) * $no_of_records_per_page ;
+         $total_pages_sql = "SELECT COUNT(*) FROM expenses  WHERE (1=1) $date_from_filter $date_filter_to
+                     $item_filter $cost_filter";
+         $page_result = mysqli_query($this->connect(),$total_pages_sql);
+         $total_rows = mysqli_fetch_array($page_result)[0];
+         $this->total_pages = ceil($total_rows / $no_of_records_per_page);
+
+         $SELECTDB = "SELECT * FROM expenses WHERE (1=1) $date_from_filter $date_filter_to
+                     $item_filter $cost_filter ORDER BY id DESC LIMIT $offset, $no_of_records_per_page";
+
         $recs_result = mysqli_query($this->connect(),$SELECTDB);
+
          
          
          $new_arr = array();
@@ -136,20 +160,96 @@ class expenses extends configure {
             //echo "Cool"; die;
          //  
              while($each_row = mysqli_fetch_assoc($recs_result)){
-                 $new_arr = $each_row;
+                 $new_arr[] = $each_row;
                   
              } 
              
-             print_r($new_arr); die();
+            // print_r($new_arr); die();
          $last_index = count($new_arr) + 1; 
          
          
 
           $last_index_arr = array($last_index => $Seach_varrs);
           $new_arr2 = array_merge($new_arr,$last_index_arr);
-            
+             //print_r($new_arr2);
           return $new_arr2;
          }
+
+    }
+    function get_total($recs_arr){
+
+        $this->details['date_from']   = isset($recs_arr['date_from'])             ? $recs_arr['date_from']    : "";
+        $this->details['date_to']     = isset($recs_arr['date_to'])               ? $recs_arr['date_to']      : "";
+        $this->details['item']        = isset($recs_arr['item'])                  ? $recs_arr['item']         : "";
+        $this->details['cost']        = isset($recs_arr['cost'])                  ? $recs_arr['cost']         : "";
+        $Seach_varrs = array();
+
+        if (($this->details['date_from']) == ""){
+            $this->details['date_from'] = date("Y")."-01-01";
+        }
+        if (($this->details['date_to']) == ""){
+            $this->details['date_to'] = date("Y-m-d");
+        }
+        //date to filter checks database where date is greater than date supplied
+        $date_from_filter = "";
+        if($this->details['date_from']!= "" ){
+            //
+            $date_from_filter = " AND  date >= '{$this->details['date_from']}' ";
+            $Seach_varrs["date_from"] = $this->details['date_from'];
+        }
+
+        //date to filter checks database where date is less than date supplied
+        //$date_to_filter = "";
+        $date_filter_to = "";
+        if($this->details['date_to']!= "" ){
+            //
+            $date_filter_to = " AND  date <= '{$this->details['date_to']}' ";
+            $Seach_varrs["date_to"] =  $this->details['date_to'];
+        }
+
+        //item filter checks database where nature of jobe is equal to product name supplied
+        $item_filter = "";
+        if($this->details['item']!= "" ){
+            //
+            $item_filter = " AND  item LIKE '%{$this->details['item']}%' ";
+            $Seach_varrs["item"] =  $this->details['item'];
+        }
+
+        //cost filter checks database where nature of category is equal to job category supplied
+        $cost_filter = "";
+        if($this->details['cost']!= "" ){
+            //
+            $item_filter = " AND  cost = {$this->details['cost']} ";
+            $Seach_varrs["cost"] =  $this->details['cost'];
+        }
+
+        $SELECTDB = "SELECT * FROM expenses WHERE (1=1) $date_from_filter $date_filter_to
+                     $item_filter $cost_filter";
+        //$recs_qry = "SELECT * FROM records ORDER BY id DESC";
+        //echo "$SELECTDB"; die("stop jo");
+
+        // echo $SELECTDB;
+
+        //echo $SELECT; die;
+        $recs_result = array();
+        $recs_result = mysqli_query($this->connect(),$SELECTDB);
+
+        if ($recs_result) {
+            //
+            while($each_row = mysqli_fetch_assoc($recs_result)){
+                $new_arr[] = $each_row;
+            }
+
+            //print_r($new_arr);
+
+            return $new_arr;
+        }
+    }
+    function get_page_num(){
+        return $this->page_no;
+    }
+    function get_total_pages(){
+        return $this->total_pages;
     }
     
 }
