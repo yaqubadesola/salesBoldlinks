@@ -456,8 +456,8 @@ $result = mysqli_query($connect,"SELECT * FROM `todos` WHERE task = 'Incomplete'
 ?>
 <div id="pretend" class="form-group">
 <select name="product_cat" class="form-control">
-<option value="select" ><?php echo $product_cat; ?></option>
-<option value="select" >Choose Category</option>
+<option value="" ><?php echo $product_cat; ?></option>
+<option value="" >Choose Category</option>
 <option value="Web Projects">Web Projects</option>
 <option value="Training">Training</option>
 <option value="Graphics/Printing">Graphics/Printing</option>
