@@ -161,6 +161,8 @@ $result = mysqli_query($connect,"SELECT * FROM `todos` WHERE task = 'Incomplete'
         	<li><a href="logout.php">Logout</a></li>
         	<li><a href="home.php">Dashboard</a></li>
         </ul>
+    <div style="float:left"><h4 id="mirror_of_model"> </h4></div>
+    <div style="float:right; margin-left:300px;"><h4 id="mirror_of_grand"> </h4></div>
   </div>
     
 <div class="row">
@@ -225,7 +227,22 @@ $result = mysqli_query($connect,"SELECT * FROM `todos` WHERE task = 'Incomplete'
                 <div id="form">
                     <th colspan="1"> 
                         <div id="date" class="form-group">
-                        <b><span style="color: red; padding: 5px; margin: 7px;">Filter by date</span></b><input type="checkbox" onclick="myFunction()" id="show"/>
+                        <b><span style="color: red; padding: 5px; margin: 7px;">Filter by date</span></b>
+                            <?php
+
+
+                            if (isset($_GET["date_from"]) && $_GET["date_from"] != "") {
+
+                            ?>
+                            <input type="checkbox" onclick="myFunction()" id="show" checked="checked"/>
+                                <?php
+                            }else{
+
+                            ?>
+                            <input type="checkbox" onclick="myFunction()" id="show"/>
+                                <?php
+                            }
+                            ?>
                             <div id="hide" onload="hidden">
                                 <label>From</label>
                                 <input type="date" name="date_from" class="form-control" value="<?php  echo $date_from; ?>"/>
@@ -235,16 +252,46 @@ $result = mysqli_query($connect,"SELECT * FROM `todos` WHERE task = 'Incomplete'
                         </div>
                     </th>
                     <th colspan="1"> <div id="items" class="form-group">
-                        <b><span style="color: red; padding: 5px; margin: 7px;">Filter by Item</span></b><input type="checkbox" onclick="myFunctionb()" id="see"/>
+                        <b><span style="color: red; padding: 5px; margin: 7px;">Filter by Item</span></b>
+                            <?php
+
+
+                            if(isset($_GET["item"]) && $_GET["item"]!=""){
+
+                            ?>
+                            <input type="checkbox" onclick="myFunctionb()" id="see" checked="checked"/>
+                                <?php
+                            }else{
+
+                            ?>
+                            <input type="checkbox" onclick="myFunctionb()" id="see"/>
+                                <?php
+                            }
+                            ?>
                             <div  id="blind" >
-                                <input type="text" name="item" class="form-control" value="<?php echo $item; ?>"/>
+                                <input type="text" name="item" class="form-control" />
                             </div>
                         </div> 
                     </th>
                     <th colspan="1"> <div id="costs" class="form-group">
-                        <b><span style="color: red; padding: 5px; margin: 7px;">Filter by Cost</span></b><input type="checkbox" onclick="myFunctionc()" id="watch"/>
+                        <b><span style="color: red; padding: 5px; margin: 7px;">Filter by Cost</span></b>
+                            <?php
+
+
+                            if(isset($_GET["cost"]) && $_GET["cost"]!=""){
+
+                            ?>
+                            <input type="checkbox" onclick="myFunctionc()" id="watch" checked="checked"/>
+                                <?php
+                            }else{
+
+                            ?>
+                            <input type="checkbox" onclick="myFunctionc()" id="watch"/>
+                                <?php
+                            }
+                            ?>
                             <div  id="pretend" >
-                                <input type="text" name="cost" class="form-control" value="<?php echo $cost; ?>"/>
+                                <input type="text" name="cost" class="form-control"/>
                             </div>
                         </div> 
                     </th>
@@ -265,7 +312,7 @@ $result = mysqli_query($connect,"SELECT * FROM `todos` WHERE task = 'Incomplete'
     
     
     
-           <table class="table table-striped table-bordered" id="sales_table">
+           <table class="table table-striped table-bordered" id="expenses_table">
            
   
     <thead>
@@ -275,6 +322,7 @@ $result = mysqli_query($connect,"SELECT * FROM `todos` WHERE task = 'Incomplete'
         <th>ITEM</th>
         <th>QUANTITY</th>
         <th>COST</th>
+        <th>ACTIONS &nbsp; <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-info btn-sm">+ Add</button></th>
     </tr>
     
     </thead>
@@ -285,20 +333,34 @@ $result = mysqli_query($connect,"SELECT * FROM `todos` WHERE task = 'Incomplete'
        // echo 'cool'; die;
     //
             $recorded = new expenses();
-            $new_recs = $recorded->get_records($_GET);//echo "jskvsjn"; 
+            $new_recs = $recorded->get_records($_GET);//echo "jskvsjn";
+            $page_no = $recorded->get_page_num();
+            $new_totals = $recorded->get_total($_GET);
+
+            $total_pages = $recorded->get_total_pages();
             
             //$result = mysqli_query($connect,"SELECT * FROM `records` ORDER BY id DESC");
-            echo $new_recs; die;
-            
+            $page_total = 0;
+
+            function currencyToNum($str){
+            return  intval(preg_replace("/[^\d\.]/","", $str));
+            };
+
+            $grand_total = 0;
+            if(is_array($new_totals)){
+                foreach($new_totals as $new_total){
+                $grand_total = $grand_total +  currencyToNum($new_total['cost']);
+                }
+            }
             
             if(is_array($new_recs)){  
                 //
-                    echo"am here <br>"; die;
+                   // echo"am here <br>"; die;
                     $result = $new_recs; //$new_recs;
                     $end_arr = end($result); //print_r($result);//die("EDFH");
                 
                  if( $end_arr != "") {
-                    
+
                   //$result =     ;   
                   //print_r($result);die("EDFH");
                   $item     = isset($end_arr["item"]) &&     $end_arr["item"] != "" ?        $end_arr["item"] :"";
@@ -309,7 +371,7 @@ $result = mysqli_query($connect,"SELECT * FROM `todos` WHERE task = 'Incomplete'
                 }
                 }   
                 
-                print_r($new_recs); die;
+               // print_r($new_recs); die;
                 
                /* $total_records = count($new_recs) -1; 
                     
@@ -338,29 +400,136 @@ $result = mysqli_query($connect,"SELECT * FROM `todos` WHERE task = 'Incomplete'
         
                 
                 
-                foreach($new_recs as $rows) {
-                
-                
-                        
-            ?>
-            
-            
-            
-           <tr>
-		<td><?php echo $row['date'] ?></td>
-        <td><?php echo $row['item'] ?></td>
-        <td><?php echo $row['quantity'] ?></td>
-        <td><?php echo $row['cost'] ?></td>
-    </tr>
-    <?php  } 
-    
+                foreach($new_recs as $row) {
+
+                    if (isset($row['id'])) {
+                        $page_total = $page_total + currencyToNum($row['cost']);
+                        ?>
+
+
+                        <tr>
+                            <td><?php echo $row['date'] ?></td>
+                            <td><?php echo $row['item'] ?></td>
+                            <td><?php echo $row['quantity'] ?></td>
+                            <td><?php echo $row['cost'] ?></td>
+                            <td><input type="button" name="edit" value="Edit" id="<?php echo $row["id"]; ?>" class="btn btn-warning btn-sm edit_data" />
+                                <a onclick="window.open('exp_comment.php?id=<?=$row['id']?>','', 'width=700px, height=300px')" class="btn btn-primary btn-sm text-centre">Comment</a>
+                                <input type="button" name="delete" value="X" id="<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm delete_data" /></td>
+                        </tr>
+                    <?php }
+                }
     mysqli_close($connect);
     ?>
     
     
     </tbody>
     </table>
-    
+
+     <div><h4 class="model">Page Total: &#8358;<?= number_format($page_total, 2) ?> </h4></div>
+
+     <div style="float:right; margin-top:-20px;"> <h4 class="grand">Grand Total: &#8358;<?= number_format($grand_total, 2) ?> </h4></div>
+
+     <?php
+     //echo $page_no;
+     // echo "<br>";
+     // echo  "hey";
+     //           echo $total_pages;
+     // echo "<br>";
+
+     $h = "expenses.php?date_from=&date_to=&products=&product_cat=Web+Projects&search=SEARCH";
+
+     // $urll = "";
+
+     $url = "expenses.php?date_from=".$_GET['date_from']."&date_to=".$_GET['date_to']."&item=".$_GET['item']."&cost=".$_GET['cost']."&search=".$_GET['search'];
+
+     $second_last = $total_pages - 1;
+     $urll = $url;
+
+     // echo $url . '<br>';
+     //echo basename($_SERVER['REQUEST_URI']);
+     //  echo $urll;
+     ?>
+
+
+     <ul class="pagination">
+         <li><a href="<?php echo $urll."&page_no=" . 1;?>">First</a></li>
+         <li class="<?php if($page_no <= 1){ echo 'disabled'; } ?>">
+             <a href="<?php if($page_no <= 1){ echo '#'; } else { echo $urll."&page_no=".($page_no - 1); } ?>">Prev</a>
+         </li>
+         <li class="<?php if($page_no >= $total_pages){ echo 'disabled'; } ?>">
+             <a href="<?php if($page_no >= $total_pages){ echo '#'; } else { echo $urll."&page_no=".($page_no + 1);} ?>">Next</a>
+         </li>
+         <li><a href="<?php echo $urll . '&page_no='. $total_pages; ?>">Last</a></li>
+     </ul>
+
+     <div style='padding: 10px 20px 0px; border-top: dotted 1px #CCC;'>
+         <strong><span style="color: red;">Page <?php echo $page_no." of ".$total_pages; ?></span></strong>
+     </div>
+
+     <ul class="pagination">
+         <li><a href="<?php echo $urll."&page_no=" . 1;?>">First</a></li>
+         <li class="<?php if($page_no <= 1){ echo 'disabled'; } ?>">
+             <a href="<?php if($page_no <= 1){ echo '#'; } else { echo $urll."&page_no=".($page_no - 1); } ?>">Prev</a>
+         </li>
+         <?php
+         if ($total_pages <= 10){
+             for ($counter = 1; $counter <= $total_pages; $counter++){
+                 if ($counter == $page_no) {
+                     echo "<li class='active'><a>$counter</a></li>";
+                 }else{
+                     echo "<li><a href=" . $urll . "&page_no=" . $counter . ">$counter</a></li>";
+                 }
+             }
+         }
+         elseif($total_pages > 10){
+
+             if($page_no <= 4) {
+                 for ($counter = 1; $counter < 8; $counter++){
+                     if ($counter == $page_no) {
+                         echo "<li class='active'><a>$counter</a></li>";
+                     }else{
+                         echo "<li><a href=" . $urll . "&page_no=" . $counter . ">$counter</a></li>";
+                     }
+                 }
+                 echo "<li><a>...</a></li>";
+                 echo "<li><a href=" . $urll . "&page_no=" . $second_last . ">$second_last</a></li>";
+                 echo "<li><a href=" . $urll . "&page_no=" . $total_pages . ">$total_pages</a></li>";
+             }
+
+             elseif($page_no > 4 && $page_no < $total_pages - 4) {
+                 $adjacents = 2;
+                 echo "<li><a href=" . $urll . "&page_no=" . 1 . ">1</a></li>";
+                 echo "<li><a href=" . $urll . "&page_no=" . 2 . ">2</a></li>";
+                 echo "<li><a>...</a></li>";
+                 for ($counter = $page_no - $adjacents; $counter <= $page_no + $adjacents; $counter++) {
+                     if ($counter == $page_no) {
+                         echo "<li class='active'><a>$counter</a></li>";
+                     }else{
+                         echo "<li><a href=" . $urll . "&page_no=" . $counter . ">$counter</a></li>";
+                     }
+                 }
+                 echo "<li><a>...</a></li>";
+                 echo "<li><a href=" . $urll . "&page_no=" . $second_last . ">$second_last</a></li>";
+                 echo "<li><a href='?page_no=$total_pages'>$total_pages</a></li>";
+             }
+
+             else {
+                 echo "<li><a href=" . $urll . "&page_no=" . 1 . ">1</a></li>";
+                 echo "<li><a href=" . $urll . "&page_no=" . 2 . ">2</a></li>";
+                 echo "<li><a>...</a></li>";
+
+                 for ($counter = $total_pages - 6; $counter <= $total_pages; $counter++) {
+                     if ($counter == $page_no) {
+                         echo "<li class='active'><a>$counter</a></li>";
+                     }else{
+                         echo "<li><a href=" . $urll . "&page_no=" . $counter . ">$counter</a></li>";
+                     }
+                 }
+             }
+         }
+         ?>
+
+     </ul>
     <!--<div style='padding: 10px 20px 0px; border-top: dotted 1px #CCC;'>
     <strong><span style="color: red;">Page <?php //echo $page_no." of ".$total_no_of_pages; ?></span></strong>
     </div> 
@@ -484,7 +653,12 @@ if (isset($_GET['page_no']) && $_GET['page_no']!="") {
     $offset = ($page_no-1) * $total_records_per_page;
 	$previous_page = $page_no - 1;
 	$next_page = $page_no + 1;
-	$adjacents = "2"; 
+	$adjacents = "2";
+    $page_total = 0;
+
+    function currencyToNum($str){
+        return  intval(preg_replace("/[^\d\.]/","", $str));
+    };
 
 
     if($_SESSION['role'] == 'super-admin') {
@@ -499,12 +673,33 @@ if (isset($_GET['page_no']) && $_GET['page_no']!="") {
     
     if($_SESSION['role'] == 'super-admin') {
     $result = mysqli_query($connect,"SELECT * FROM `expenses` ORDER BY id DESC LIMIT $offset, $total_records_per_page ");
+        $page_sum = mysqli_query($connect,"SELECT cost FROM `expenses` ");
     } else {
         
         $result = mysqli_query($connect,"SELECT * FROM `expenses` WHERE user = '$user' ORDER BY id DESC LIMIT $offset, $total_records_per_page ");
+        $page_sum = mysqli_query($connect,"SELECT cost FROM `expenses`  WHERE user = '$user'");
         
     }
-    while($row = mysqli_fetch_array($result)){ ?>
+
+    if ($page_sum) {
+//
+        while ($each_row = mysqli_fetch_assoc($page_sum)) {
+            $sum_arrs[] = $each_row;
+        }
+     }
+
+    //function currencyToNum($str){
+        //return  intval(preg_replace("/[^\d\.]/","", $str));
+    //};
+
+    $grand_total = 0;
+
+    foreach($sum_arrs as $sum_arr) {
+        $grand_total = $grand_total + currencyToNum($sum_arr['cost']);
+    }
+    while($row = mysqli_fetch_array($result)){
+        $page_total = $page_total + currencyToNum($row['cost']);
+        ?>
     <tr>
 		<td><?php echo $row['date'] ?></td>
         <td><?php echo $row['item'] ?></td>
@@ -522,8 +717,11 @@ if (isset($_GET['page_no']) && $_GET['page_no']!="") {
  ?>
      </tbody>
     </table>
+     <div style="float:right;"> <h4 class="grand">Grand Total: &#8358;<?= number_format($grand_total, 2) ?> </h4></div>
+     <div><h4 class="model">Page Total: &#8358;<?= number_format($page_total, 2) ?> </h4></div>
 
-<div style='padding: 10px 20px 0px; border-top: dotted 1px #CCC;'>
+
+     <div style='padding: 10px 20px 0px; border-top: dotted 1px #CCC;'>
 <strong><span style="color: red;">Page <?php echo $page_no." of ".$total_no_of_pages; ?></span></strong>
 </div>
 
@@ -664,6 +862,25 @@ if (isset($_GET['page_no']) && $_GET['page_no']!="") {
 
         </div>
     </div>
+
+<script>
+
+    if(document.getElementsByClassName("model")[0].innerText){
+        document.getElementById("mirror_of_model").innerText = document.getElementsByClassName("model")[0].innerText;
+    }
+
+    if(document.getElementsByClassName("grand")[0].innerText){
+        document.getElementById("mirror_of_grand").innerText = document.getElementsByClassName("grand")[0].innerText;
+    }
+
+    if(document.getElementsByClassName("grand")[0].innerText){
+        document.getElementById("mirror_of_grand_two").innerText = document.getElementsByClassName("grand")[0].innerText;
+    }
+
+
+
+</script>
+
 <script>  
  $(document).ready(function(){  
       $('#add').click(function(){  
