@@ -38,7 +38,7 @@ function validateForm() {
                 }
             }
             
-            XMLHttp.open("POST", "http://sales.boldlinks.com.ng/login.php"+URL, true);
+            XMLHttp.open("POST", "http://localhost/salesBoldlinks/login.php"+URL, true);
             XMLHttp.send();
         }
    }

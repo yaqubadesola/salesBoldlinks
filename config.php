@@ -2,9 +2,9 @@
 
 class configure{
     
-    public $dbhost = "localhost:3306";
-    public $dbusername = "Boldlinks_Win";
-    public $dbpass = "Admin@@2018.";
+    public $dbhost = "localhost";
+    public $dbusername = "root";
+    public $dbpass = "";
     public $dbname = "boldlinks_inventory";
     public  $dbcons;
     

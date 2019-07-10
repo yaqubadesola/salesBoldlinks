@@ -38,6 +38,16 @@ function myFunctionc() {
     }
 }
 
+function myFunctiond() {
+    var checkBox = document.getElementById("watch_cat");
+    var text = document.getElementById("pretend_cat");
+    if (checkBox.checked == true){
+        text.style.display = "block";
+    } else {
+        text.style.display = "none";
+    }
+}
+
 /*function showClock() {
     
     var todayDate = new Date();
