@@ -15,6 +15,7 @@ if(!empty($_POST))  {
     $name = mysqli_real_escape_string($db_class->connect(), $_POST['name']);
     $phone = mysqli_real_escape_string($db_class->connect(), $_POST['phone']);
     $email = mysqli_real_escape_string($db_class->connect(), $_POST['email']);
+    $category = mysqli_real_escape_string($db_class->connect(), $_POST['product_cat']);
     $address = mysqli_real_escape_string($db_class->connect(), $_POST['address']);
     $customer_id = mysqli_real_escape_string($db_class->connect(), $_POST['customer_id']);   
     
@@ -25,7 +26,8 @@ if(!empty($_POST))  {
                 SET name = '$name',
                     phone = '$phone',
                     email = '$email',
-                    address = '$address'
+                    address = '$address',
+                    category = '$category'
                 WHERE id = '$customer_id'";
                 $message = "Record updated";
     $result = mysqli_query($db_class->connect(), $query);
@@ -35,8 +37,8 @@ if(!empty($_POST))  {
     else {
         
         $query = "  
-           INSERT INTO customers(date, name, phone, email, address)  
-           VALUES('$date', '$name', '$phone', '$email', '$address');  
+           INSERT INTO customers(date, name, phone, email, address, category)
+           VALUES('$date', '$name', '$phone', '$email', '$address', '$category');
            ";  
            $message = 'Record Inserted';
     }
@@ -67,6 +69,7 @@ if(!empty($_POST))  {
         <th>PHONE</th>
         <th>EMAIL</th>
         <th>ADDRESS</th>
+        <th>CATEGORY</th>
         <th>ACTIONS &nbsp; <button type='button' name='add' id='add' data-toggle='modal' data-target='#add_data_Modal' class='btn btn-info btn-sm'>+ Add</button></th>
     </tr>
     </thead>
@@ -78,6 +81,7 @@ if(!empty($_POST))  {
             <td><?php echo $row['phone'] ?></td>
             <td><?php echo $row['email'] ?></td>
             <td><?php echo $row['address'] ?></td>
+            <td><?php echo $row['category'] ?></td>
             <td><input type="button" name="edit" value="Edit" id="<?php echo $row["id"]; ?>" class="btn btn-warning btn-sm edit_data" />
          <a onclick="window.open('custom_comment.php?id=<?=$row['id']?>','', 'width=700px, height=300px')" class="btn btn-primary btn-sm text-centre">Comment</a>
         <input type="button" name="delete" value="X" id="<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm delete_data" /></td>
