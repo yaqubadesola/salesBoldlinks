@@ -2,10 +2,10 @@
 -- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jun 14, 2019 at 07:52 PM
--- Server version: 5.6.43
--- PHP Version: 5.6.30
+-- Host: 127.0.0.1
+-- Generation Time: Jul 16, 2019 at 11:36 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -47,82 +47,82 @@ CREATE TABLE `customers` (
   `phone` varchar(200) NOT NULL,
   `email` varchar(100) NOT NULL,
   `address` varchar(10000) NOT NULL,
-  `user` varchar(100) NOT NULL
+  `user` varchar(100) NOT NULL,
+  `category` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`date`, `id`, `name`, `phone`, `email`, `address`, `user`) VALUES
-('2019-01-08', 1, 'Mr Alade', '08056109889', '', '', ''),
-('2019-01-08', 2, 'Mrs Godfirst (I.D card)', '07066029011', '', '', ''),
-('2019-01-08', 3, 'Trugate consult', '08032320038', '', '', ''),
-('2019-01-08', 4, 'Almat (Ayo)', '08186773209', '', '', ''),
-('2019-01-08', 5, 'Mr Daniel (ch)', '09081752040', '', '', ''),
-('2019-01-08', 6, 'Sigma Press ', '08038181093', '', '', ''),
-('2019-01-08', 7, 'Mr Eugene', '07039831377', '', '', ''),
-('2019-01-08', 8, 'Mrs Zainab (I.D card)', '08132373879', '', '', ''),
-('2019-01-08', 9, 'Miss Joy', '08135871519', '', '', ''),
-('2019-01-08', 10, 'Mummy Fola', '08027358520', '', '', ''),
-('2019-01-08', 11, 'Hon Shola', '07080436084', '', '', ''),
-('2019-01-08', 12, 'Mr Odeleye', '07030115897', '', '', ''),
-('2019-01-08', 13, 'Expression (mrs)', '08023395710', '', '', ''),
-('2019-01-08', 14, 'Expression (mrs)', '08023395710', '', '', ''),
-('2019-01-08', 15, 'Mr Adewale', '07066308674', '', '', ''),
-('2019-01-08', 16, 'Debby', '08133136474', '', '', ''),
-('2019-01-08', 17, 'Mr Issac', '07062828131', '', '', ''),
-('2019-01-08', 18, 'Mr Kenneth', '09033408805', '', '', ''),
-('2019-01-08', 19, 'Mr Gbenga', '07069652870', '', '', ''),
-('2019-01-08', 20, 'D Sower', '08173497475', '', '', ''),
-('2019-01-08', 21, 'Mr Shola', '07039261439', '', '', ''),
-('2019-01-08', 22, 'Mr Hassan', '08100101588', '', '', ''),
-('2019-01-08', 23, 'Abdul Hakeem', '08169832396', '', '', ''),
-('2019-01-08', 24, 'Mr Alaba', '08071900175', '', '', ''),
-('2019-01-08', 25, 'Mr Fela', '08052411578', '', '', ''),
-('2019-01-08', 26, 'Mr Gbenga New', '09063186696', '', '', ''),
-('2019-01-08', 27, 'Mr Ohis', '08137485593', '', '', ''),
-('2019-01-08', 28, 'Pastor Thony', '08083441919', '', '', ''),
-('2019-01-08', 29, 'Pastor', '08135389995', '', '', ''),
-('2019-01-08', 30, 'Pastor', '08034251884', '', '', ''),
-('2019-01-08', 31, 'Madam Nneka', '08034065896', '', '', ''),
-('2019-01-08', 32, 'Mr Dayo Femic', '08023068892', '', '', ''),
-('2019-01-08', 33, 'Bro Ibrahim Motif Customer', '08062981844', '', '', ''),
-('2019-01-08', 34, 'Lolade Customer Ikeja', '08103055909', '', '', ''),
-('2019-01-08', 35, 'Effizie Customer', '09031824318', '', '', ''),
-('2019-01-08', 36, 'Nicholas Ogude Customer', '08033352883', '', '', ''),
-('2019-01-08', 39, 'Paul Customer', '08155496158', '', '', ''),
-('2019-01-08', 40, 'New Customer Ijaiye', '08089628128', '', '', ''),
-('2019-01-08', 41, 'Mike Customer', '08051668088', '', '', ''),
-('2019-01-08', 42, 'Customer Web IB 2', '07018050442', '', '', ''),
-('2019-01-08', 43, 'Customer Pearl', '08023309095', '', '', ''),
-('2019-01-08', 44, 'Ojo Tem Customer', '07039457536', '', '', ''),
-('2019-01-08', 45, 'Olufidipe Victor Customer', '08135918010', '', '', ''),
-('2019-01-08', 46, 'Madam Asalam Customer', '09069599178', '', '', ''),
-('2019-01-08', 47, 'Dr Kaiworld Sola Customer', '', '', '', ''),
-('2019-01-08', 48, 'Mr Yaqub ', '08075664662', '', '', ''),
-('2019-01-08', 49, 'papa Alade', '08029707489', '', '', ''),
-('2019-01-08', 50, 'Extremegrafix Imagery Customer', '08062643627', '', '', ''),
-('2019-01-08', 51, 'Yomi Boldlinks', '07082725430', '', '', ''),
-('2019-01-08', 52, 'Joy Imolega Boldlinks', '08050451377', '', '', ''),
-('2019-01-08', 53, 'Mr Kola Boldlinks', '08069149691', '', '', ''),
-('2019-01-08', 55, 'Yussuf Boldlinks', '07035377825', '', '', ''),
-('2019-01-08', 57, 'Mr Saheed Boldlinks', '09058302137', '', '', ''),
-('2019-01-08', 58, 'David Boldlinks', '08151208155', '', '', ''),
-('2019-01-08', 59, 'Boldlinks Abubakar Abuja', '08149545959', '', '', ''),
-('2019-01-08', 60, 'Yunusa Ismail Boldlinks', '08164911261', '', '', ''),
-('2019-01-08', 61, 'Tobi Boldlinks', '08145282363', '', '', ''),
-('2019-01-08', 62, 'Afterlife Boldlinks', '07018172433', '', '', ''),
-('2019-01-08', 63, 'Afterlife Boldlinks 2', '08054081928', '', '', ''),
-('2019-01-08', 64, 'Muhammad Boldlinks', '08162837886', '', '', ''),
-('2019-01-18', 65, 'Mr Ahmed', '08138506684', '', '', ''),
-('2019-01-18', 66, 'Mr Lanre', '08037606384', '', '', ''),
-('2019-01-18', 67, 'Mr Ojo', '08168542626', '', '', ''),
-('2019-01-18', 68, 'Mr Francis', '07063302644', '', '', ''),
-('2019-01-18', 69, 'Mr Oluwagbenga', '09063186696', '', '', ''),
-('2019-01-22', 70, 'comerade Ajayi', '08037222290', '', '', ''),
-('2019-01-22', 71, 'Mr Moses', '08141520511', '', '', ''),
-('2019-01-22', 72, 'Gbensap', '08036856175', '', '', '');
+INSERT INTO `customers` (`date`, `id`, `name`, `phone`, `email`, `address`, `user`, `category`) VALUES
+('2019-01-08', 1, 'Mr Alade', '08056109889', '', '', '', ''),
+('2019-01-08', 2, 'Mrs Godfirst (I.D card)', '07066029011', '', '', '', ''),
+('2019-01-08', 3, 'Trugate consults', '08032320038', '', '', '', ''),
+('2019-01-08', 4, 'Almat (Ayo)', '08186773209', '', '', '', ''),
+('2019-01-08', 5, 'Mr Daniel (ch)', '09081752040', '', '', '', ''),
+('2019-01-08', 6, 'Sigma Press ', '08038181093', '', '', '', ''),
+('2019-01-08', 7, 'Mr Eugene', '07039831377', '', '', '', ''),
+('2019-01-08', 8, 'Mrs Zainab (I.D card)', '08132373879', '', '', '', ''),
+('2019-01-08', 9, 'Miss Joy', '08135871519', '', '', '', ''),
+('2019-01-08', 10, 'Mummy Fola', '08027358520', '', '', '', ''),
+('2019-01-08', 11, 'Hon Shola', '07080436084', '', '', '', ''),
+('2019-01-08', 12, 'Mr Odeleye', '07030115897', '', '', '', ''),
+('2019-01-08', 13, 'Expression (mrs)', '08023395710', '', '', '', ''),
+('2019-01-08', 14, 'Expression (mrs)', '08023395710', '', '', '', ''),
+('2019-01-08', 15, 'Mr Adewale', '07066308674', '', '', '', ''),
+('2019-01-08', 16, 'Debby', '08133136474', '', '', '', ''),
+('2019-01-08', 17, 'Mr Issac', '07062828131', '', '', '', ''),
+('2019-01-08', 18, 'Mr Kenneth', '09033408805', '', '', '', ''),
+('2019-01-08', 19, 'Mr Gbenga', '07069652870', '', '', '', ''),
+('2019-01-08', 20, 'D Sower', '08173497475', '', '', '', ''),
+('2019-01-08', 21, 'Mr Shola', '07039261439', '', '', '', ''),
+('2019-01-08', 22, 'Mr Hassan', '08100101588', '', '', '', ''),
+('2019-01-08', 23, 'Abdul Hakeem', '08169832396', '', '', '', ''),
+('2019-01-08', 24, 'Mr Alaba', '08071900175', '', '', '', ''),
+('2019-01-08', 25, 'Mr Fela', '08052411578', '', '', '', ''),
+('2019-01-08', 26, 'Mr Gbenga New', '09063186696', '', '', '', ''),
+('2019-01-08', 27, 'Mr Ohis', '08137485593', '', '', '', ''),
+('2019-01-08', 28, 'Pastor Thony', '08083441919', '', '', '', ''),
+('2019-01-08', 29, 'Pastor', '08135389995', '', '', '', ''),
+('2019-01-08', 30, 'Pastor', '08034251884', '', '', '', ''),
+('2019-01-08', 31, 'Madam Nneka', '08034065896', '', '', '', ''),
+('2019-01-08', 32, 'Mr Dayo Femic', '08023068892', '', '', '', ''),
+('2019-01-08', 33, 'Bro Ibrahim Motif Customer', '08062981844', '', '', '', ''),
+('2019-01-08', 34, 'Lolade Customer Ikeja', '08103055909', '', '', '', ''),
+('2019-01-08', 35, 'Effizie Customer', '09031824318', '', '', '', ''),
+('2019-01-08', 36, 'Nicholas Ogude Customer', '08033352883', '', '', '', ''),
+('2019-01-08', 39, 'Paul Customer', '08155496158', '', '', '', ''),
+('2019-01-08', 40, 'New Customer Ijaiye', '08089628128', '', '', '', ''),
+('2019-01-08', 41, 'Mike Customer', '08051668088', '', '', '', ''),
+('2019-01-08', 42, 'Customer Web IB 2', '07018050442', '', '', '', ''),
+('2019-01-08', 43, 'Customer Pearl', '08023309095', '', '', '', ''),
+('2019-01-08', 44, 'Ojo Tem Customer', '07039457536', '', '', '', ''),
+('2019-01-08', 45, 'Olufidipe Victor Customer', '08135918010', '', '', '', ''),
+('2019-01-08', 46, 'Madam Asalam Customer', '09069599178', '', '', '', ''),
+('2019-01-08', 47, 'Dr Kaiworld Sola Customer', '', '', '', '', ''),
+('2019-01-08', 48, 'Mr Yaqub ', '08075664662', '', '', '', ''),
+('2019-01-08', 49, 'papa Alade', '08029707489', '', '', '', ''),
+('2019-01-08', 50, 'Extremegrafix Imagery Customer', '08062643627', '', '', '', ''),
+('2019-01-08', 51, 'Yomi Boldlinks', '07082725430', '', '', '', ''),
+('2019-01-08', 52, 'Joy Imolega Boldlinks', '08050451377', '', '', '', ''),
+('2019-01-08', 53, 'Mr Kola Boldlinks', '08069149691', '', '', '', ''),
+('2019-01-08', 55, 'Yussuf Boldlinks', '07035377825', '', '', '', ''),
+('2019-01-08', 57, 'Mr Saheed Boldlinks', '09058302137', '', '', '', ''),
+('2019-01-08', 58, 'David Boldlinks', '08151208155', '', '', '', ''),
+('2019-01-08', 59, 'Boldlinks Abubakar Abuja', '08149545959', '', '', '', ''),
+('2019-01-08', 60, 'Yunusa Ismail Boldlinks', '08164911261', '', '', '', ''),
+('2019-01-08', 61, 'Tobi Boldlinks', '08145282363', '', '', '', ''),
+('2019-01-08', 62, 'Afterlife Boldlinks', '07018172433', '', '', '', ''),
+('2019-01-08', 64, 'Muhammad Boldlinks', '08162837886', '', '', '', ''),
+('2019-01-18', 66, 'Mr Lanre', '08037606384', '', '', '', ''),
+('2019-01-18', 67, 'Mr Ojo', '08168542626', '', '', '', ''),
+('2019-01-18', 68, 'Mr Frances', '07063302644', '', '', '', ''),
+('2019-01-18', 69, 'Mr Oluwagbenga', '09063186696', '', '', '', ''),
+('2019-01-22', 70, 'comerade Ajayi', '08037222290', '', '', '', ''),
+('2019-01-22', 72, 'Gbensap', '08036856175', '', '', '', ''),
+('2019-07-09', 74, 'olodo', '08017366238', 'aku@gmail.com', 'tuyvbkjn', '', 'Web Projects'),
+('2019-07-10', 75, 'ben', '08017366238', 'basit@gmail.com', 'ubhjkfs', '', '');
 
 -- --------------------------------------------------------
 
@@ -269,7 +269,8 @@ INSERT INTO `expenses` (`id`, `date`, `item`, `quantity`, `cost`, `user`) VALUES
 (113, '2019-05-31', 'Cutting', '', '800', 'opeyemi'),
 (114, '2019-05-31', 'Paper', '', '1750', 'opeyemi'),
 (115, '2019-05-31', 'water', '', '100', 'opeyemi'),
-(116, '2019-05-31', 'Banner', '', '550', 'opeyemi');
+(116, '2019-07-10', 'Banner', '', '505', 'opeyemi'),
+(117, '2019-07-10', '7giuh', '1000', '678', 'Boldlinks');
 
 -- --------------------------------------------------------
 
@@ -338,7 +339,7 @@ CREATE TABLE `records` (
 --
 
 INSERT INTO `records` (`id`, `date`, `nature_of_job`, `rate`, `copies`, `category`, `amount`, `total`, `balance`, `user`) VALUES
-(2, '2019-01-02', 'A4 printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
+(2, '2019-01-02', 'A4 printing', '100', '3', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
 (3, '2019-01-02', 'A4 printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
 (4, '2019-01-02', 'Photocopy', '10', '10', 'Other Services', '100', '100', '', 'opeyemi'),
 (5, '2019-01-02', 'A4 printing', '30', '40', 'Graphics/Printing', '1200', '1200', '', 'opeyemi'),
@@ -879,7 +880,7 @@ INSERT INTO `records` (`id`, `date`, `nature_of_job`, `rate`, `copies`, `categor
 (556, '2019-03-29', 'A4 Printing', '50', '2', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
 (557, '2019-03-29', 'A4 Printing', '18', '100', 'Graphics/Printing', '1800', '1800', '', 'opeyemi'),
 (558, '2019-03-29', 'A4 Printing', '100', '2', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
-(559, '2019-03-29', 'Resogade Web fees balance', '', '', 'Web Projects', '000', '50,000', '', 'opeyemi'),
+(559, '2019-03-29', 'Resogade Web fee balance', '', '', 'Web Projects', '000', '50,000', '', 'opeyemi'),
 (560, '2019-03-29', 'Babatunde Sulayman Training Bal', '', '', 'Training', '000', '10000', '', 'opeyemi'),
 (561, '2019-03-29', 'Atilola Olanshile Training Advance', '', '', 'Training', '15000', '10000', '5000', 'opeyemi'),
 (562, '2019-04-01', 'A4 Printing', '15', '26.6', 'Graphics/Printing', '400', '400', '', 'opeyemi'),
@@ -1284,7 +1285,7 @@ INSERT INTO `records` (`id`, `date`, `nature_of_job`, `rate`, `copies`, `categor
 (976, '2019-06-12', 'A4 Printing', '50', '1', 'Graphics/Printing', '50', '50', '', 'opeyemi'),
 (977, '2019-06-12', 'A4 Printing', '20', '37', 'Graphics/Printing', '750', '750', '', 'opeyemi'),
 (978, '2019-06-12', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
-(979, '2019-06-12', 'Photocopy', '10', '2', 'Other Services', '200', '20', '', 'opeyemi'),
+(979, '2019-06-12', 'Photocopy', '10', '2', 'Other Services', '205', '20', '', 'opeyemi'),
 (980, '2019-06-12', 'Design', '500', '1', 'Other Services', '500', '500', '', 'opeyemi'),
 (981, '2019-06-12', 'A4 Printing', '100', '1', 'Graphics/Printing', '100', '100', '', 'opeyemi'),
 (982, '2019-06-12', 'A4 Printing', '15', '150', 'Graphics/Printing', '2250', '2250', '', 'opeyemi'),
@@ -1301,11 +1302,9 @@ INSERT INTO `records` (`id`, `date`, `nature_of_job`, `rate`, `copies`, `categor
 (993, '2019-06-12', 'Internet & Printing', '', '', 'Other Services', '300', '300', '', 'opeyemi'),
 (994, '2019-06-12', 'Outstanding debt', '', '', 'select', '000', '2000', '100', 'opeyemi'),
 (995, '2019-06-12', 'A4 Printing', '50', '3', 'Graphics/Printing', '150', '150', '', 'opeyemi'),
-(996, '2019-06-12', 'Photocopy', '10', '10', 'Other Services', '100', '100', '', 'opeyemi'),
 (997, '2019-06-12', 'A4 Printing', '50', '7', 'Graphics/Printing', '350', '350', '', 'opeyemi'),
-(998, '2019-06-12', 'Design', '500', '1', 'Other Services', '500', '500', '', 'opeyemi'),
-(999, '2019-06-12', 'A4 Printing', '50', '4', 'Graphics/Printing', '200', '200', '', 'opeyemi'),
-(1000, '2019-06-12', 'A4 Printing', '15', '50', 'Graphics/Printing', '750', '750', '', 'opeyemi');
+(1000, '2019-06-12', 'A4 Printing', '15', '59', 'Graphics/Printing', '750', '750', '', 'opeyemi'),
+(1002, '2019-07-09', 'PHOTOCOPY', '10', '59', 'Other Services', '10', '500', '0', 'Boldlinks');
 
 -- --------------------------------------------------------
 
@@ -1356,7 +1355,9 @@ INSERT INTO `todos` (`id`, `date`, `todo`, `task`, `completed_at`) VALUES
 (52, '2019-03-01', 'Sifaaun Salam call and ammendment', 'Completed', '2019-05-13'),
 (53, '2019-03-01', 'cold wear', 'Completed', '2019-05-13'),
 (54, '2019-03-01', 'birthday sticker-lolade', 'Completed', '2019-05-13'),
-(55, '2019-03-01', 'sublime picture', 'Completed', '2019-05-13');
+(55, '2019-03-01', 'sublime picture', 'Completed', '2019-05-13'),
+(56, '2019-06-25', 'entered', 'Incomplete', NULL),
+(57, '2019-07-10', 'uhbkjnl', 'Incomplete', NULL);
 
 -- --------------------------------------------------------
 
@@ -1450,7 +1451,7 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `customers_comment_table`
@@ -1462,7 +1463,7 @@ ALTER TABLE `customers_comment_table`
 -- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 --
 -- AUTO_INCREMENT for table `expenses_comment_table`
@@ -1480,7 +1481,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `records`
 --
 ALTER TABLE `records`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
 
 --
 -- AUTO_INCREMENT for table `sales_comment_table`
@@ -1492,7 +1493,7 @@ ALTER TABLE `sales_comment_table`
 -- AUTO_INCREMENT for table `todos`
 --
 ALTER TABLE `todos`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `todos_comment_table`
